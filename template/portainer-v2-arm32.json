@@ -3716,7 +3716,7 @@
 					"default": "172.20.0.250",
 					"label": "PiHoleIP",
 					"name": "PiHoleIP",
-					"description": "Pihole internal frontend IP"
+					"description": "Pihole internal frontend-network IP"
 				},
 				{
 					"default": "piholepassword",
