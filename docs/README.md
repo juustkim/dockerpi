@@ -5,7 +5,7 @@
 This repository is a collection of tutorials for hosting a variety of server applications using Docker and [Portainer](https://github.com/portainer/portainer).
 
 ### App Template for Portainer
-![alt text](https://github.com/pi-hosted/pi-hosted/blob/master/apptemplate.png?raw=true)
+![alt text](https://github.com/juustkim/pi-hosted/blob/master/apptemplate.png?raw=true)
 
 ### Apps List
 
@@ -14,7 +14,7 @@ See the list of Apps included in this template [here](AppList.md).
 ### Installation
 Run `install-docker.sh`, to install docker, and add the current user to the docker usergroup.
 ```
-wget -qO- https://git.io/JS96e | bash
+wget -qO- https://raw.githubusercontent.com/juustkim/dockerpi/master/install_docker.sh | bash
 # need to reboot/logout for changes to take effect
 ```
 
@@ -26,7 +26,7 @@ sudo dpkg-query -W libseccomp2
 If you are running a version less that 2.5 you will need to run the *upgrade script.
 
 ```
-wget -qO- https://git.io/JPXdj | bash
+wget -qO- https://raw.githubusercontent.com/juustkim/pi-hosted/master/tools/update_libseccomp2.sh | bash
 ```
 * The upgrade script is for Pi OS 32bit.  Pi OS 64 beta is untested and the upgrade script wont work with it.
 
@@ -38,9 +38,9 @@ sudo reboot
 
 After a reboot, run `install-portainer.sh`, to install Portainer.io
 ```
-wget -qO- https://git.io/JS96L | bash
+wget -qO- https://raw.githubusercontent.com/juustkim/pi-hosted/master/install_portainer.sh | bash
 # to update portainer, run this command
-wget -qO- https://git.io/JS96Y | bash
+wget -qO- https://raw.githubusercontent.com/juustkim/pi-hosted/master/update_portainer.sh | bash
 ```
 Click Settings, in the bottom-left corner, and paste the Portainer v2 json file link from below into the "App Templates" box.
 
@@ -49,8 +49,8 @@ You're done! Now just click App Templates and deploy applications!
 #### Versions
 | Application  | Supported OS's | URL |
 | ------------- | ------------- | ------------- |
-| Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm32.json |
-| Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm64.json |
+| Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/juustkim/pi-hosted/master/template/portainer-v2-arm32.json |
+| Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/juustkim/pi-hosted/master/template/portainer-v2-arm64.json |
 
 * Limited testing Operating Systems: Pi OS 64 Beta, DietPI 32 bit
 
