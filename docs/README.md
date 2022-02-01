@@ -1,11 +1,11 @@
-# Pi-Hosted Portainer Template V2
+# dockerpi Portainer Template V2
 
 [![Discord](https://img.shields.io/discord/316245914987528193?logo=discord)](https://discord.com/invite/v8dAnFV) [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCrjKdwxaQMSV_NDywgKXVmw) [![Twitter URL](https://img.shields.io/twitter/follow/novaspirittech?style=flat-square&logo=twitter)](https://twitter.com/novaspirittech) [![hacktoberfest](https://img.shields.io/badge/hacktoberfest-friendly-orange)](https://hacktoberfest.digitalocean.com)
 
 This repository is a collection of tutorials for hosting a variety of server applications using Docker and [Portainer](https://github.com/portainer/portainer).
 
 ### App Template for Portainer
-![alt text](https://github.com/kimostberg/pi-hosted/blob/master/apptemplate.png?raw=true)
+![alt text](https://github.com/kimostberg/dockerpi/blob/master/apptemplate.png?raw=true)
 
 ### Apps List
 
@@ -26,7 +26,7 @@ sudo dpkg-query -W libseccomp2
 If you are running a version less that 2.5 you will need to run the *upgrade script.
 
 ```
-wget -qO- https://raw.githubusercontent.com/kimostberg/pi-hosted/master/tools/update_libseccomp2.sh | bash
+wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/tools/update_libseccomp2.sh | bash
 ```
 * The upgrade script is for Pi OS 32bit.  Pi OS 64 beta is untested and the upgrade script wont work with it.
 
@@ -38,9 +38,9 @@ sudo reboot
 
 After a reboot, run `install-portainer.sh`, to install Portainer.io
 ```
-wget -qO- https://raw.githubusercontent.com/kimostberg/pi-hosted/master/install_portainer.sh | bash
+wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_portainer.sh | bash
 # to update portainer, run this command
-wget -qO- https://raw.githubusercontent.com/kimostberg/pi-hosted/master/update_portainer.sh | bash
+wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/update_portainer.sh | bash
 ```
 Click Settings, in the bottom-left corner, and paste the Portainer v2 json file link from below into the "App Templates" box.
 
@@ -49,14 +49,14 @@ You're done! Now just click App Templates and deploy applications!
 #### Versions
 | Application  | Supported OS's | URL |
 | ------------- | ------------- | ------------- |
-| Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/kimostberg/pi-hosted/master/template/portainer-v2-arm32.json |
-| Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/kimostberg/pi-hosted/master/template/portainer-v2-arm64.json |
+| Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/portainer-v2-arm32.json |
+| Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/portainer-v2-arm64.json |
 
 * Limited testing Operating Systems: Pi OS 64 Beta, DietPI 32 bit
 
-### Pi-Hosted YouTube series
+### dockerpi YouTube series
 
-[![Pi-Hosted Playlist](https://i.ytimg.com/vi/cO2-gQ09Jj0/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAfgdX8HlHas2CddSmgwJzergnTzQ)](https://www.youtube.com/watch?v=cO2-gQ09Jj0&list=PL846hFPMqg3jwkxcScD1xw2bKXrJVvarc)
+[![dockerpi Playlist](https://i.ytimg.com/vi/cO2-gQ09Jj0/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAfgdX8HlHas2CddSmgwJzergnTzQ)](https://www.youtube.com/watch?v=cO2-gQ09Jj0&list=PL846hFPMqg3jwkxcScD1xw2bKXrJVvarc)
 
 
 |   | Episode                                                                                                                                                                       | Additional Information |
@@ -85,7 +85,7 @@ Install, Update, Pre-Install and extra scripts can be found in our [GitHub Tools
 
 ### Contributors
 
-See the list of [contributors](https://github.com/pi-hosted/pi-hosted/graphs/contributors) who participated in this project.
+See the list of [contributors](https://github.com/dockerpi/dockerpi/graphs/contributors) who participated in this project.
 
 ### Acknowledgment
 * template based on [SelfHosted](https://github.com/SelfhostedPro/selfhosted_templates) Portainer App Template
