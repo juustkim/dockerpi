@@ -7,7 +7,7 @@ networks:
 
 services:
   pihole:
-    container_name: ${HOSTNAME}
+    container_name: ${CONTNAME}
     image: cbcrowe/pihole-unbound:latest
     hostname: ${HOSTNAME}
 #    domainname: ${DOMAIN_NAME}

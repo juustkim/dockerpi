@@ -3708,9 +3708,15 @@
 				},
 				{
 					"default": "pihole",
+					"label": "CONTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the container name here"
+				},
+				{
+					"default": "pihole",
 					"label": "HOSTNAME",
 					"name": "HOSTNAME",
-					"description": "Insert the container name here"
+					"description": "Insert the host name here"
 				},
 				{
 					"default": "172.20.0.250",
