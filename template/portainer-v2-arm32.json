@@ -399,7 +399,7 @@
 			"platform": "linux",
 			"repository": {
 				"stackfile": "stack/bookstack.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			},
 			"title": "Bookstack",
 			"type": 3
@@ -3099,7 +3099,7 @@
 			"platform": "linux",
 			"repository": {
 				"stackfile": "stack/nextcloud.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			},
 			"title": "Nextcloud",
 			"type": 3
@@ -3226,7 +3226,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/nginx-proxy-manager.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			}
 		},		
 		{
@@ -3682,11 +3682,16 @@
 				"Tools"
 			],
 			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"image": "cbcrowe/pihole-unbound:latest",
 			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pihole-unbound.png",
 			"name": "pihole-unbound",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53. For extra information on this container visit the mainteiner \u003ca href='https://github.com/chriscrowe/docker-pihole-unbound/tree/master/one-container'\u003eGitHub Page\u003c/a\u003e. You can add ports: 5335 to access Ubound externally; 22 to enable SSH; 67 to use DHCP Server. Add those ports in Show advanced options.",
 			"platform": "linux",
+			"title": "Pi-Hole-Unbound",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/pihole-unbound.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			}
 			"ports": [
 				"53:53/tcp",
 				"53:53/udp",
@@ -3694,17 +3699,27 @@
 				"4443:443/tcp"
 			],
 			"restart_policy": "unless-stopped",
-			"title": "Pi-Hole-Unbound",
-			"type": 1,
 			"env": [
 				{
-					"default": "192.168.0.X",
+					"default": "10.13.37.250",
 					"label": "ServerIP",
 					"name": "ServerIP",
 					"description": "Insert the Raspberry Pi IP here"
 				},
 				{
-					"default": "Europe\\London",
+					"default": "pihole",
+					"label": "HOSTNAME",
+					"name": "HOSTNAME",
+					"description": "Insert the container name here"
+				},
+				{
+					"default": "piholepassword",
+					"label": "WEBPASSWORD",
+					"name": "WEBPASSWORD",
+					"description": "Write super secure password here"
+				},
+				{
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -4091,7 +4106,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/raspberrypi-monitoring.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			}
 		},
 		{
@@ -4155,7 +4170,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/redmine.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			}
 		},
 		{
@@ -5274,7 +5289,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/unpoller-stack.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			}
 		},
 		{
@@ -5558,7 +5573,7 @@
 			],
 			"repository": {
 				"stackfile": "stack/wireguard-easy.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted"
+				"url": "https://github.com/kimostberg/dockerpi"
 			}
 		},
 		{
@@ -5593,7 +5608,7 @@
 			"platform":"linux",
 
 			"repository":{
-				"url": "https://github.com/pi-hosted/pi-hosted",
+				"url": "https://github.com/kimostberg/dockerpi",
 				"stackfile": "stack/wordpress-stack.yml"
 			},
 			"title":"Wordpress",
