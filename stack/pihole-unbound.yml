@@ -10,7 +10,7 @@ services:
     container_name: ${HOSTNAME}
     image: cbcrowe/pihole-unbound:latest
     hostname: ${HOSTNAME}
-    domainname: ${DOMAIN_NAME}
+#    domainname: ${DOMAIN_NAME}
     ports:
     #  - 8443:443/tcp
       - 53:53/tcp
@@ -22,10 +22,10 @@ services:
       ServerIP: ${ServerIP}
       TZ: ${TZ}
       WEBPASSWORD: ${WEBPASSWORD}
-      REV_SERVER: ${REV_SERVER}
-      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
-      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
-      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
+#      REV_SERVER: ${REV_SERVER}
+#      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
+#      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
+#      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     volumes:
       - /container/pihole/data:/etc/pihole:rw
       - /container/pihole/dnsmasq:/etc/dnsmasq.d:rw
