@@ -31,4 +31,5 @@ services:
       - /container/pihole/dnsmasq:/etc/dnsmasq.d:rw
     restart: unless-stopped
     networks:
-      - frontend
+      frontend:
+        ipv4_address: ${PiHoleIP}

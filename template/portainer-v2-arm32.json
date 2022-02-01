@@ -3713,6 +3713,12 @@
 					"description": "Insert the container name here"
 				},
 				{
+					"default": "172.20.0.250",
+					"label": "PiHoleIP",
+					"name": "PiHoleIP",
+					"description": "Pihole internal frontend IP"
+				},
+				{
 					"default": "piholepassword",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD",
