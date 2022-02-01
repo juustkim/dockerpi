@@ -3691,7 +3691,7 @@
 			"repository": {
 				"stackfile": "stack/pihole-unbound.yml",
 				"url": "https://github.com/kimostberg/dockerpi"
-			}
+			},
 			"ports": [
 				"53:53/tcp",
 				"53:53/udp",
