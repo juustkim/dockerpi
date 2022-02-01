@@ -3749,18 +3749,6 @@
 							"value": "false"
 						}
 					]
-				},
-				{
-					"default": "127.0.0.1#5335",
-					"label": "DNS1",
-					"name": "DNS1",
-					"preset": true
-				},
-				{
-					"default": "127.0.0.1#5335",
-					"label": "DNS2",
-					"name": "DNS2",
-					"preset": true
 				}
 			],
 			"volumes": [
