@@ -1,31 +1,44 @@
----
-version: "2"
+version: '3'
+
+networks:
+  frontend:
+    # add this if the network is already existing!
+    external: true
+  backend:
+    external: true
+
 services:
-  nextcloud:
-    image: linuxserver/nextcloud:latest
-    container_name: nextcloud
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /container/Nextcloud/Config:/config
-    ports:
-      - ${PORT}:443
+
+  nextcloud-app:
+    image: nextcloud
+    container_name: ${CONTNAME}
+    hostname: ${CONTNAME}
     restart: unless-stopped
-    depends_on:
-      - nextcloud_db
-  nextcloud_db:
-    image: linuxserver/mariadb:latest
-    container_name: nextcloud_db
+    volumes:
+      - /portainer/${CONTNAME}/Data:/var/www/html
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${TZ}
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
-    volumes:
-      - /container/Nextcloud/DB:/config
+      - MYSQL_DATABASE=${CONTNAME}
+      - MYSQL_USER=${CONTNAME}
+      - MYSQL_HOST="${CONTNAME}-db"
+      - TZ=${TZ}
+    networks:
+      - frontend
+      - backend
+
+  nextcloud-db:
+    container_name: "${CONTNAME}-db"
+    hostname: "${CONTNAME}-db"
+    image: jc21/mariadb-aria:latest
     restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /portainer/${CONTNAME}/DB:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_DATABASE=${CONTNAME}
+      - MYSQL_USER=${CONTNAME}
+      - TZ=${TZ}
+    networks:
+      - backend

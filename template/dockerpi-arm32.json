@@ -30,16 +30,6 @@
 					"description": "Insert the Raspberry Pi IP here"
 				},
 				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
-				},
-				{
 					"default": "",
 					"label": "CF_API_TOKEN",
 					"name": "CF_API_TOKEN"
@@ -53,6 +43,47 @@
 					"default": "true",
 					"label": "PROXIED",
 					"name": "PROXIED"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/nextcloud-icon.png",
+			"name": "nextcloud",
+			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
+			"platform": "linux",
+			"repository": {
+				"stackfile": "stack/nextcloud.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"title": "Nextcloud",
+			"type": 3,
+			"env": [
+				{
+					"default": "nextcloud",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "Europe/Istanbul",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"label": "DATABASE_PASSWORD",
+					"name": "DATABASE_PASSWORD"
+				},
+				{
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
 				}
 			]
 		},
@@ -78,16 +109,6 @@
 					"label": "HOSTNAME",
 					"name": "CONTNAME",
 					"description": "Insert the host name here"
-				},
-				{
-					"default": "1000",
-					"label": "PUID",
-					"name": "PUID"
-				},
-				{
-					"default": "1000",
-					"label": "PGID",
-					"name": "PGID"
 				},
                 {
 					"default": "Europe/Istanbul",
