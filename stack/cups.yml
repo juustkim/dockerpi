@@ -6,7 +6,7 @@ networks:
     
 services:
   cups:
-    image: olbat/cupsd
+    image: ydkn/cups:latest
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
 #    ports:
@@ -14,12 +14,12 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
-#      - /container/${CONTNAME}/config:/config
+      - /container/${CONTNAME}/config:/etc/cups
 #      - /container/${CONTNAME}/services:/services
 #    devices:
 #      - /dev/bus:/dev/bus
     environment:
-      - CUPSADMIN=${CUPS_ADMIN}
-      - CUPSPASSWORD=${CUPS_PASSWORD}
+#      - CUPSADMIN=${CUPS_ADMIN}
+      - ADMIN_PASSWORD=${CUPS_PASSWORD}
     networks:
       - frontend
