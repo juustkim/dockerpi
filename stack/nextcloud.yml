@@ -27,8 +27,6 @@ services:
       - backend
     dns: 
       - 172.20.0.250
-    links: 
-      - ${CONTNAME}-db
 
   nextcloud-db:
     container_name: "${CONTNAME}-db"
