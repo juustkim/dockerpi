@@ -8,28 +8,28 @@ networks:
 
 services:    # First time login Email:    admin@example.com
   npm-app:   # First time login Password: changeme
-    container_name: npm-app
-    hostname: npm
+    container_name: ${CONTNAME}
+    hostname: ${CONTNAME}
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
       # These ports are in format <host-port>:<container-port>
-      #- '80:80' # Public HTTP Port
-      #- '443:443' # Public HTTPS Port
+      - '80:80' # Public HTTP Port
+      - '443:443' # Public HTTPS Port
       - '8081:81' # Admin Web Port
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
     environment:
-      DB_MYSQL_HOST: "npm-db"
+      DB_MYSQL_HOST: ${CONTNAME}"-db"
       DB_MYSQL_PORT: 3306
-      DB_MYSQL_USER: "npm"
-      DB_MYSQL_PASSWORD: "jDPOVCoZXl2cpiVv" # Change this. Has to same as npm-db MYSQL_PASSWORD
-      DB_MYSQL_NAME: "npm"
+      DB_MYSQL_USER: ${CONTNAME}
+      DB_MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this. Has to same as npm-db MYSQL_PASSWORD
+      DB_MYSQL_NAME: ${CONTNAME}
       # Uncomment this if IPv6 is not enabled on your host
       # DISABLE_IPV6: 'true'
     volumes:
-      - /container/npm/data:/data
-      - /container/npm/letsencrypt:/etc/letsencrypt
+      - /container/${CONTNAME}/data:/data
+      - /container/${CONTNAME}/letsencrypt:/etc/letsencrypt
     networks:
       - frontend
       - backend
@@ -37,16 +37,16 @@ services:    # First time login Email:    admin@example.com
       - 10.13.37.250
 
   npm-db:
-    container_name: npm-db
-    hostname: npm-db
+    container_name: ${CONTNAME}-db
+    hostname: ${CONTNAME}-db
     image: 'jc21/mariadb-aria:latest'
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: 'm0DlUBvUdB0LPhEM' # Change this
-      MYSQL_DATABASE: 'npm'
-      MYSQL_USER: 'npm'
-      MYSQL_PASSWORD: 'jDPOVCoZXl2cpiVv' # Change this
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD} # Change this
+      MYSQL_DATABASE: ${CONTNAME}
+      MYSQL_USER: ${CONTNAME}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
     volumes:
-      - /container/npm/data/mysql:/var/lib/mysql
+      - /container/${CONTNAME}/data/mysql:/var/lib/mysql
     networks:
       - backend
