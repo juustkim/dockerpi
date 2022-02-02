@@ -39,7 +39,9 @@ sudo reboot
 After a reboot, run `install-portainer.sh`, to install Portainer.io
 ```
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_portainer.sh | bash
+
 # to update portainer, run this command
+
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/update_portainer.sh | bash
 ```
 Click Settings, in the bottom-left corner, and paste the Portainer v2 json file link from below into the "App Templates" box.
