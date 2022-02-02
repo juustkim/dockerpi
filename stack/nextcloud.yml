@@ -37,6 +37,7 @@ services:
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
       - /container/${CONTNAME}/DB:/var/lib/mysql
+      - /container/${CONTNAME}/DB/config:/config
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
