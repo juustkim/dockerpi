@@ -94,13 +94,18 @@
 				"VPN"
 			],
 			"description": "Fast VPN Server with easy to use User Interface",
-			"image": "weejewel/wg-easy:latest",
 			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wireguard.png",
 			"name": "wg-easy",
 			"platform": "linux",
 			"title": "Wireguard Server",
 			"type": 3,
 			"env": [
+				{
+					"default": "wireguard",
+					"name": "HOSTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				},
 				{
 					"default": "example.domain.com",
 					"name": "WG_HOST",

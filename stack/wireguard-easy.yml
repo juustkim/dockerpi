@@ -19,9 +19,10 @@ services:
       - WG_ALLOWED_IPS=${WG_ALLOWED_IPS}
       
     image: weejewel/wg-easy
-    container_name: wg-easy
+    container_name: ${HOSTNAME}
+    hostname: ${HOSTNAME}
     volumes:
-      - /container/wireguard:/etc/wireguard
+      - /container/${HOSTNAME}:/etc/wireguard
     ports:
       - "${WG_PORT}:51820/udp"
       - "51821:51821/tcp"
