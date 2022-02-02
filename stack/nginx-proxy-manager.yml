@@ -34,7 +34,7 @@ services:    # First time login Email:    admin@example.com
       - frontend
       - backend
     dns: 
-      - 10.13.37.250
+      - 172.20.0.250
 
   npm-db:
     container_name: "npm-db"
