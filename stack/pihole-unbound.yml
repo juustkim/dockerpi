@@ -2,8 +2,9 @@ version: '3'
 
 networks:
   frontend:
-    # add this if the network is already existing!
-    external: true
+    external: true # add this if the network is already existing!
+  backend:
+    external: true # add this if the network is already existing!
 
 services:
   pihole:
@@ -32,4 +33,6 @@ services:
     restart: unless-stopped
     networks:
       frontend:
-        ipv4_address: ${PiHoleIP}
+        ipv4_address: 172.20.0.250
+      backend:
+        ipv4_address: 172.21.0.250
