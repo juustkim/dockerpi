@@ -9,7 +9,7 @@ services:
   pihole:
     container_name: ${CONTNAME}
     image: cbcrowe/pihole-unbound:latest
-    hostname: ${HOSTNAME}
+    hostname: ${CONTNAME}
 #    domainname: ${DOMAIN_NAME}
     ports:
     #  - 8443:443/tcp
@@ -27,8 +27,8 @@ services:
 #      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
 #      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     volumes:
-      - /container/pihole/data:/etc/pihole:rw
-      - /container/pihole/dnsmasq:/etc/dnsmasq.d:rw
+      - /container/${CONTNAME}/data:/etc/pihole:rw
+      - /container/${CONTNAME}/dnsmasq:/etc/dnsmasq.d:rw
     restart: unless-stopped
     networks:
       frontend:

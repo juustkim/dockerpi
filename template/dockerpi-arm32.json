@@ -33,14 +33,8 @@
 				},
 				{
 					"default": "pihole",
-					"label": "CONTNAME",
-					"name": "CONTNAME",
-					"description": "Insert the container name here"
-				},
-				{
-					"default": "pihole",
 					"label": "HOSTNAME",
-					"name": "HOSTNAME",
+					"name": "CONTNAME",
 					"description": "Insert the host name here"
 				},
 				{
@@ -103,7 +97,7 @@
 				{
 					"default": "wireguard",
 					"name": "CONTNAME",
-					"label": "CONTNAME",
+					"label": "HOSTNAME",
 					"description": "Set here your hostname"
 				},
 				{
