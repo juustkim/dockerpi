@@ -23,7 +23,7 @@ services:
       - MYSQL_HOST=172.21.0.51
       - TZ=${TZ}
     networks:
-      frontend: {}
+      frontend: null
        backend:
         ipv4_address: 172.21.0.50
     dns: 172.20.0.250
