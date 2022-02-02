@@ -27,6 +27,7 @@ services:    # First time login Email:    admin@example.com
       DB_MYSQL_NAME: ${CONTNAME}
       # Uncomment this if IPv6 is not enabled on your host
       # DISABLE_IPV6: 'true'
+      - TZ=${TZ}
     volumes:
       - /container/${CONTNAME}/data:/data
       - /container/${CONTNAME}/letsencrypt:/etc/letsencrypt
@@ -46,6 +47,7 @@ services:    # First time login Email:    admin@example.com
       MYSQL_DATABASE: ${CONTNAME}
       MYSQL_USER: ${CONTNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
+      - TZ=${TZ}
     volumes:
       - /container/${CONTNAME}/data/mysql:/var/lib/mysql
     networks:
