@@ -44,7 +44,7 @@ wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_p
 
 ```
 
-### To update portainer, run this command (Portainer will use Pi-Hole as DNS after this update, so make sure that it is installed before updating)
+To update portainer, run this command (Portainer will use Pi-Hole as DNS after this update, so make sure that it is installed before updating)
 
 ```
 
