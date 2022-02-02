@@ -52,3 +52,5 @@ services:    # First time login Email:    admin@example.com
       - /container/${CONTNAME}/data/mysql:/var/lib/mysql
     networks:
       - backend
+    dns: 
+      - 172.21.0.250
