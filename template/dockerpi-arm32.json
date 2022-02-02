@@ -3,6 +3,55 @@
 	"templates": [
 		{
 			"categories": [
+				"DNS",
+				"Tools"
+			],
+			"description": "Cloudflare DDNS - A small and fast DDNS updater for Cloudflare.",
+			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/cloudflare-ddns.png",
+			"name": "cloudflare-ddns",
+			"platform": "linux",
+			"title": "Cloudflare DDNS",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/cloudflare-ddns.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "cloudflare-ddns",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"default": "",
+					"label": "CF_API_TOKEN",
+					"name": "CF_API_TOKEN"
+				},
+				{
+					"default": "",
+					"label": "DOMAINS (Comma Separated List)",
+					"name": "DOMAINS"
+				},
+				{
+					"default": "true",
+					"label": "PROXIED",
+					"name": "PROXIED"
+				}
+			]
+		},
+		{
+			"categories": [
 				"Proxy",
 				"Tools"
 			],
@@ -11,6 +60,12 @@
 			"name": "nginx-proxy-manager",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:8081. First time login Email: admin@example.com First time login Password: changeme",
 			"platform": "linux",
+			"title": "Nginx Proxy Manager",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/nginx-proxy-manager.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
 			"env": [
 				{
 					"default": "npm",
@@ -44,14 +99,8 @@
 					"name": "MYSQL_ROOT_PASSWORD"
 				}
 				
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Nginx Proxy Manager",
-			"type": 3,
-			"repository": {
-				"stackfile": "stack/nginx-proxy-manager.yml",
-				"url": "https://github.com/kimostberg/dockerpi"
-			}
+			]
+
 		},		
 		{
 			"categories": [
