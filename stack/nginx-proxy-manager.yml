@@ -20,7 +20,7 @@ services:    # First time login Email:    admin@example.com
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
     environment:
-      DB_MYSQL_HOST: "${CONTNAME}-db"
+      DB_MYSQL_HOST: "npm-db"
       DB_MYSQL_PORT: 3306
       DB_MYSQL_USER: ${CONTNAME}
       DB_MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this. Has to same as npm-db MYSQL_PASSWORD
@@ -37,8 +37,8 @@ services:    # First time login Email:    admin@example.com
       - 10.13.37.250
 
   npm-db:
-    container_name: "${CONTNAME}-db"
-    hostname: "${CONTNAME}-db"
+    container_name: "npm-db"
+    hostname: "npm-db"
     image: 'jc21/mariadb-aria:latest'
     restart: unless-stopped
     environment:
