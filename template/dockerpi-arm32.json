@@ -192,6 +192,32 @@
 		{
 			"categories": [
 				"Other",
+				"Tools"
+			],
+			"description": "It is a self-hosted monitoring tool like 'Uptime Robot'.",
+			"image": "louislam/uptime-kuma:latest",
+			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/uptime-kuma.png",
+			"name": "uptime-kuma",
+			"note": "A fancy self-hosted monitoring tool. To access Uptime Kuma, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: uptime) and 'Forward Port' 3001",
+			"platform": "linux",
+			"title": "Uptime Kuma",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/uptime-kuma.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "uptime",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Other",
 				"VPN"
 			],
 			"description": "Fast VPN Server with easy to use User Interface",
@@ -201,6 +227,10 @@
 			"platform": "linux",
 			"title": "Wireguard Server",
 			"type": 3,
+			"repository": {
+				"stackfile": "stack/wireguard-easy.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
 			"env": [
 				{
 					"default": "wireguard",
@@ -236,11 +266,7 @@
 					"name": "WG_ALLOWED_IPS",
 					"label": "WG_ALLOWED_IPS"
 				}
-			],
-			"repository": {
-				"stackfile": "stack/wireguard-easy.yml",
-				"url": "https://github.com/kimostberg/dockerpi"
-			}
+			]
 		}
 
     ]
