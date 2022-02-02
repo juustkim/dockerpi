@@ -145,13 +145,6 @@
 				"stackfile": "stack/pihole-unbound.yml",
 				"url": "https://github.com/kimostberg/dockerpi"
 			},
-			"ports": [
-				"53:53/tcp",
-				"53:53/udp",
-				"1010:80/tcp",
-				"4443:443/tcp"
-			],
-			"restart_policy": "unless-stopped",
 			"env": [
 				{
 					"default": "10.13.37.250",
