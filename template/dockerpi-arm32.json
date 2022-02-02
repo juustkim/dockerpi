@@ -7,7 +7,7 @@
 				"Tools"
 			],
 			"description": "Cloudflare DDNS - A small and fast DDNS updater for Cloudflare.",
-			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/cloudflare-ddns.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cloudflare-ddns.png",
 			"name": "cloudflare-ddns",
 			"platform": "linux",
 			"title": "Cloudflare DDNS",
@@ -61,8 +61,8 @@
 				"Proxy",
 				"Tools"
 			],
-			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/pi-hosted/pi-hosted/tree/master/docs installing the template",
-			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/proxy_mgr.png",
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/kimostberg/dockerpi/tree/master/docs installing the template",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/proxy_mgr.png",
 			"name": "nginx-proxy-manager",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:8081. First time login Email: admin@example.com First time login Password: changeme",
 			"platform": "linux",
@@ -114,7 +114,7 @@
 				"Tools"
 			],
 			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pihole-unbound.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pihole-unbound.png",
 			"name": "pihole-unbound",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53. For extra information on this container visit the mainteiner \u003ca href='https://github.com/chriscrowe/docker-pihole-unbound/tree/master/one-container'\u003eGitHub Page\u003c/a\u003e. You can add ports: 5335 to access Ubound externally; 22 to enable SSH; 67 to use DHCP Server. Add those ports in Show advanced options.",
 			"platform": "linux",
@@ -196,7 +196,7 @@
 			],
 			"description": "It is a self-hosted monitoring tool like 'Uptime Robot'.",
 			"image": "louislam/uptime-kuma:latest",
-			"logo": "https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/images/uptime-kuma.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/uptime-kuma.png",
 			"name": "uptime-kuma",
 			"note": "A fancy self-hosted monitoring tool. To access Uptime Kuma, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: uptime) and 'Forward Port' 3001",
 			"platform": "linux",
@@ -221,7 +221,7 @@
 				"VPN"
 			],
 			"description": "Fast VPN Server with easy to use User Interface",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wireguard.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/wireguard.png",
 			"name": "wireguard",
 			"note": "To control Wireguard users, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: wireguard) and 'Forward Port' 51821",
 			"platform": "linux",
