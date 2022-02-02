@@ -15,7 +15,7 @@ services:
     hostname: ${CONTNAME}
     restart: unless-stopped
     volumes:
-      - /portainer/${CONTNAME}/Data:/var/www/html
+      - /container/${CONTNAME}/Data:/var/www/html
     environment:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
@@ -33,7 +33,7 @@ services:
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - /portainer/${CONTNAME}/DB:/var/lib/mysql
+      - /container/${CONTNAME}/DB:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
