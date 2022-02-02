@@ -24,7 +24,7 @@ services:
       - TZ=${TZ}
     networks:
       frontend: null
-       backend:
+      backend:
         ipv4_address: 172.21.0.50
     dns: 172.20.0.250
 
