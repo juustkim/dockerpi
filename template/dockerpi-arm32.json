@@ -24,6 +24,12 @@
 					"description": "Insert the host name here"
 				},
 				{
+					"default": "10.13.37.250",
+					"label": "DNS",
+					"name": "DNS",
+					"description": "Insert the Raspberry Pi IP here"
+				},
+				{
 					"default": "1000",
 					"label": "PUID",
 					"name": "PUID"

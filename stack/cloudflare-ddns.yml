@@ -12,4 +12,4 @@ services:
       - PROXIED=${PROXIED}
     network_mode: host
     dns: 
-      - 10.13.37.250
+      - ${DNS}
