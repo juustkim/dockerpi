@@ -2,6 +2,8 @@
 
 [![Discord](https://img.shields.io/discord/316245914987528193?logo=discord)](https://discord.com/invite/v8dAnFV) [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCrjKdwxaQMSV_NDywgKXVmw) [![Twitter URL](https://img.shields.io/twitter/follow/novaspirittech?style=flat-square&logo=twitter)](https://twitter.com/novaspirittech) [![hacktoberfest](https://img.shields.io/badge/hacktoberfest-friendly-orange)](https://hacktoberfest.digitalocean.com)
 
+This is my verion of Pi-Hosted. I wanted to arrange things my way. All containers in my DockerPi will connect to 2 different networks, frontend and backend. First container to install is Pihole-unbound. everything else will use that container as DNS. 
+
 This repository is a collection of tutorials for hosting a variety of server applications using Docker and [Portainer](https://github.com/portainer/portainer).
 
 ### App Template for Portainer
@@ -40,7 +42,7 @@ After a reboot, run `install-portainer.sh`, to install Portainer.io
 ```
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_portainer.sh | bash
 
-# to update portainer, run this command
+# to update portainer, run this command (Portainer will use Pi-Hole as DNS after this update, so make sure that it is installed before updating)
 
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/update_portainer.sh | bash
 ```
@@ -57,9 +59,9 @@ You're done! Now just click App Templates and deploy applications!
 
 * Limited testing Operating Systems: Pi OS 64 Beta, DietPI 32 bit
 
-### dockerpi YouTube series
+### Novaspirit Pi-hosted YouTube series
 
-[![dockerpi Playlist](https://i.ytimg.com/vi/cO2-gQ09Jj0/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAfgdX8HlHas2CddSmgwJzergnTzQ)](https://www.youtube.com/watch?v=cO2-gQ09Jj0&list=PL846hFPMqg3jwkxcScD1xw2bKXrJVvarc)
+[![Pi-Hosted Playlist](https://i.ytimg.com/vi/cO2-gQ09Jj0/hqdefault.jpg?sqp=-oaymwEXCNACELwBSFryq4qpAwkIARUAAIhCGAE=&rs=AOn4CLAfgdX8HlHas2CddSmgwJzergnTzQ)](https://www.youtube.com/watch?v=cO2-gQ09Jj0&list=PL846hFPMqg3jwkxcScD1xw2bKXrJVvarc)
 
 
 |   | Episode                                                                                                                                                                       | Additional Information |
@@ -88,7 +90,7 @@ Install, Update, Pre-Install and extra scripts can be found in our [GitHub Tools
 
 ### Contributors
 
-See the list of [contributors](https://github.com/dockerpi/dockerpi/graphs/contributors) who participated in this project.
+See the list of [contributors](https://github.com/pi-hosted/pi-hosted/graphs/contributors) who participated in this project.
 
 ### Acknowledgment
 * template based on [SelfHosted](https://github.com/SelfhostedPro/selfhosted_templates) Portainer App Template
