@@ -42,7 +42,11 @@ After a reboot, run `install-portainer.sh`, to install Portainer.io
 ```
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_portainer.sh | bash
 
-# to update portainer, run this command (Portainer will use Pi-Hole as DNS after this update, so make sure that it is installed before updating)
+```
+
+# To update portainer, run this command (Portainer will use Pi-Hole as DNS after this update, so make sure that it is installed before updating)
+
+```
 
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/update_portainer.sh | bash
 ```
