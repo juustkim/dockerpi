@@ -20,11 +20,12 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
       - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST=${CONTNAME}-db
+      - MYSQL_HOST=172.21.0.51
       - TZ=${TZ}
     networks:
       - frontend
-      - backend
+      backend:
+        ipv4_address: 172.21.0.50 
     dns: 
       - 172.20.0.250
 
@@ -43,6 +44,5 @@ services:
       - MYSQL_USER=${CONTNAME}
       - TZ=${TZ}
     networks:
-      - backend
-    dns: 
-      - 172.21.0.250
+      backend:
+        ipv4_address: 172.21.0.51
