@@ -20,7 +20,7 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
       - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST="${CONTNAME}-db"
+      - MYSQL_HOST=${CONTNAME}-db
       - TZ=${TZ}
     networks:
       - frontend
