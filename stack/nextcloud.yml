@@ -25,6 +25,8 @@ services:
     networks:
       - frontend
       - backend
+    links: 
+      - ${CONTNAME}-db
 
   nextcloud-db:
     container_name: "${CONTNAME}-db"
