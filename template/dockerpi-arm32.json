@@ -142,6 +142,7 @@
 			"description": "Fast VPN Server with easy to use User Interface",
 			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wireguard.png",
 			"name": "wireguard",
+			"note": "To control Wireguard users, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: wireguard) and 'Forward Port' 51821",
 			"platform": "linux",
 			"title": "Wireguard Server",
 			"type": 3,
