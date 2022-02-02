@@ -32,7 +32,7 @@ services:
   nextcloud-db:
     container_name: "${CONTNAME}-db"
     hostname: "${CONTNAME}-db"
-    image: linuxserver/mariadb:latest
+    image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
