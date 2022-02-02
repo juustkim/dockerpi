@@ -1,4 +1,9 @@
 version: "3"
+
+networks:
+  frontend:
+    external: true # add this if the network is already existing!
+
 services:
   cloudflare-ddns:
     container_name: ${CONTNAME}
@@ -10,6 +15,8 @@ services:
       - ZONE=${DOMAINS}
 #      - SUBDOMAIN=subdomain
       - PROXIED=${PROXIED}
-    network_mode: host
+#    network_mode: host
+    networks:
+      - frontend
     dns: 
       - 10.13.37.250
