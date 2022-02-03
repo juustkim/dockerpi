@@ -6,7 +6,7 @@ version: '3'
     
 services:
   cups:
-    image: kimostberg/cups-airprint:arm32
+    image: kimostberg/cups-airprint
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
     network_mode: host
