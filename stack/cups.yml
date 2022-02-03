@@ -6,7 +6,7 @@ networks:
     
 services:
   cups:
-    image: kimostberg/cups-airprint:latest
+    image: kimostberg/cups-airprint:arm32
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
 #    ports:
