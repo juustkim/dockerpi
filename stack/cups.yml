@@ -6,7 +6,7 @@ networks:
     
 services:
   cups:
-    image: kimostberg/cups-airprint
+    image: kimostberg/cups:latest
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
 #    network_mode: host
