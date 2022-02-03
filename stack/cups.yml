@@ -1,17 +1,17 @@
 version: '3'
 
-networks:
-  frontend:
-    external: true # add this if the network is already existing!
+#networks:
+#  frontend:
+#    external: true # add this if the network is already existing!
     
 services:
   cups:
     image: kimostberg/cups:latest
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
-#    network_mode: host
-    ports:
-      - "631:631"
+    network_mode: host
+#    ports:
+#      - "631:631"
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
@@ -20,8 +20,9 @@ services:
       - /container/${CONTNAME}/services:/services
     devices:
       - /dev/bus:/dev/bus
+      - /dev/usb:/dev/usb
     environment:
       - CUPSADMIN=${CUPS_ADMIN}
       - CUPSPASSWORD=${CUPS_PASSWORD}
-    networks:
-      - frontend
+#    networks:
+#      - frontend
