@@ -1,14 +1,15 @@
 version: '3'
 
-networks:
-  frontend:
-    external: true # add this if the network is already existing!
+#networks:
+#  frontend:
+#    external: true # add this if the network is already existing!
     
 services:
   cups:
     image: kimostberg/cups-airprint:arm32
     container_name: ${CONTNAME}
     hostname: ${CONTNAME}
+    network_mode: host
 #    ports:
 #      - "631:631"
     restart: unless-stopped
@@ -22,5 +23,5 @@ services:
     environment:
       - CUPSADMIN=${CUPS_ADMIN}
       - CUPSPASSWORD=${CUPS_PASSWORD}
-    networks:
-      - frontend
+#    networks:
+#      - frontend
