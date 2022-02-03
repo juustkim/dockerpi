@@ -2,15 +2,16 @@ version: '3'
 
 networks:
   frontend:
-    # add this if the network is already existing!
-    external: true
+    external: true # add this if the network is already existing!
+#  backend:
+#    external: true # add this if the network is already existing!
 
 services:
   pihole:
-    container_name: ${HOSTNAME}
+    container_name: ${CONTNAME}
     image: cbcrowe/pihole-unbound:latest
-    hostname: ${HOSTNAME}
-    domainname: ${DOMAIN_NAME}
+    hostname: ${CONTNAME}
+#    domainname: ${DOMAIN_NAME}
     ports:
     #  - 8443:443/tcp
       - 53:53/tcp
@@ -22,14 +23,16 @@ services:
       ServerIP: ${ServerIP}
       TZ: ${TZ}
       WEBPASSWORD: ${WEBPASSWORD}
-      REV_SERVER: ${REV_SERVER}
-      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
-      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
-      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
+#      REV_SERVER: ${REV_SERVER}
+#      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
+#      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
+#      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     volumes:
-      - /container/pihole/data:/etc/pihole:rw
-      - /container/pihole/dnsmasq:/etc/dnsmasq.d:rw
+      - /container/${CONTNAME}/data:/etc/pihole:rw
+      - /container/${CONTNAME}/dnsmasq:/etc/dnsmasq.d:rw
     restart: unless-stopped
     networks:
       frontend:
-        ipv4_address: ${PiHoleIP}
+        ipv4_address: 172.20.0.250
+#      backend:
+#        ipv4_address: 172.21.0.250

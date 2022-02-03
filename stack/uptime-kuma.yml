@@ -1,0 +1,21 @@
+version: '3.3'
+
+networks:
+  frontend:
+    external: true # add this if the network is already existing!
+
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma
+    container_name: ${CONTNAME}
+    hostname: ${CONTNAME}
+    volumes:
+      - /container/${CONTNAME}:/app/data
+    #ports:
+    #  - 3001:3001
+    enviroments:
+    - TZ=${TZ}
+    networks:
+      - frontend
+    dns: 
+      - 172.20.0.250

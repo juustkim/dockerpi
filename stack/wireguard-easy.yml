@@ -1,4 +1,9 @@
 version: "3.8"
+
+networks:
+  frontend:
+    external: true # add this if the network is already existing!
+
 services:
   wg-easy:
     environment:
@@ -9,14 +14,15 @@ services:
       # Optional:
       - PASSWORD=${PASSWORD}
       - WG_PORT=${WG_PORT}
-      - WG_DEFAULT_ADDRESS=10.8.0.x
+      - WG_DEFAULT_ADDRESS=10.10.0.x
       - WG_DEFAULT_DNS=${WG_DEFAULT_DNS}
       - WG_ALLOWED_IPS=${WG_ALLOWED_IPS}
       
     image: weejewel/wg-easy
-    container_name: wg-easy
+    container_name: ${CONTNAME}
+    hostname: ${CONTNAME}
     volumes:
-      - /portainer/Files/AppData/Config/wireguard:/etc/wireguard
+      - /container/${CONTNAME}:/etc/wireguard
     ports:
       - "${WG_PORT}:51820/udp"
       - "51821:51821/tcp"
@@ -27,3 +33,7 @@ services:
     sysctls:
       - net.ipv4.ip_forward=1
       - net.ipv4.conf.all.src_valid_mark=1
+    networks:
+      - frontend
+    dns: 
+      - ${WG_DEFAULT_DNS}

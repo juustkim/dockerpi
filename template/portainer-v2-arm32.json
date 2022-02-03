@@ -18,7 +18,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -34,7 +34,7 @@
 				}
 			],
 			"image": "linuxserver/airsonic:arm32v7-latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/airsonic-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/airsonic-logo.png",
 			"name": "airsonic",
 			"platform": "linux",
 			"ports": [
@@ -45,23 +45,23 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				},
 				{
-					"bind": "/container/Airsonic/Playlists",
+					"bind": "/portainer/Files/AppData/Config/Airsonic/Playlists",
 					"container": "/playlists"
 				},
 				{
-					"bind": "/container/Podcasts",
+					"bind": "/portainer/Podcasts",
 					"container": "/podcasts"
 				},
 				{
-					"bind": "/container/Airsonic/Media",
+					"bind": "/portainer/Files/AppData/Config/Airsonic/Media",
 					"container": "/media"
 				},
 				{
-					"bind": "/container/Airsonic/Config",
+					"bind": "/portainer/Files/AppData/Config/Airsonic/Config",
 					"container": "/config"
 				}
 			]
@@ -83,7 +83,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -99,7 +99,7 @@
 				}
 			],
 			"image": "linuxserver/airsonic-advanced:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/airsonic-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/airsonic-logo.png",
 			"name": "airsonic-advanced",
 			"platform": "linux",
 			"ports": [
@@ -110,23 +110,23 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				},
 				{
-					"bind": "/container/Airsonic-Advanced/Playlists",
+					"bind": "/portainer/Files/AppData/Config/Airsonic-Advanced/Playlists",
 					"container": "/playlists"
 				},
 				{
-					"bind": "/container/Podcasts",
+					"bind": "/portainer/Podcasts",
 					"container": "/podcasts"
 				},
 				{
-					"bind": "/container/Airsonic-Advanced/Media",
+					"bind": "/portainer/Files/AppData/Config/Airsonic-Advanced/Media",
 					"container": "/media"
 				},
 				{
-					"bind": "/container/Airsonic-Advanced/Config",
+					"bind": "/portainer/Files/AppData/Config/Airsonic-Advanced/Config",
 					"container": "/config"
 				}
 			]
@@ -138,7 +138,7 @@
 			],
 			"description": "ArchiveBox is a powerful, self-hosted internet archiving solution to collect, save, and view sites you want to preserve offline.",
 			"image": "archivebox/archivebox:master",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/archivebox.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/archivebox.png",
 			"name": "archivebox",
 			"note": "By default an admin user is not created. You can do so by launching a shell in the container and executing 'archivebox manage createsuperuser'. Documentation is Available \u003ca href='https://github.com/ArchiveBox/ArchiveBox/wiki'\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -150,7 +150,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/archivebox",
+					"bind": "/portainer/Files/AppData/Config/archivebox",
 					"container": "/data"
 				}
 			],
@@ -191,13 +191,13 @@
 			"description": "An open-source authentication and authorization server providing 2-factor authentication and single sign-on (SSO) for your applications via a web portal.",
 			"env": [
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "authelia/authelia:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/authelia.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/authelia.png",
 			"name": "authelia",
 			"note": "Requires a configuration.yml file in order to work. Documentation is Available \u003ca href='https://docs.authelia.com/deployment/deployment-ha'\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -209,7 +209,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Authelia",
+					"bind": "/portainer/Files/AppData/Config/Authelia",
 					"container": "/etc/authelia/"
 				}
 			]
@@ -232,13 +232,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "linuxserver/bazarr:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/bazarr.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/bazarr.png",
 			"name": "bazarr",
 			"platform": "linux",
 			"ports": [
@@ -249,15 +249,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Bazarr",
+					"bind": "/portainer/Files/AppData/Config/Bazarr",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/movies"
 				}
 			]
@@ -280,7 +280,7 @@
 				}
 			],
 			"image": "linuxserver/beets:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/beets-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/beets-icon.png",
 			"name": "beets",
 			"platform": "linux",
 			"ports": [
@@ -291,15 +291,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Beets",
+					"bind": "/portainer/Files/AppData/Config/Beets",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				}
 			]
@@ -328,7 +328,7 @@
 				}
 			],
 			"image": "linuxserver/booksonic:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/booksonic.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/booksonic.png",
 			"name": "booksonic",
 			"platform": "linux",
 			"ports": [
@@ -339,15 +339,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Books",
+					"bind": "/portainer/Books",
 					"container": "/books"
 				},
 				{
-					"bind": "/container/Files/Podcasts",
+					"bind": "/portainer/Files/Podcasts",
 					"container": "/podcast"
 				},
 				{
-					"bind": "/container/Booksonic",
+					"bind": "/portainer/Files/AppData/Config/Booksonic",
 					"container": "/config"
 				}
 			]
@@ -369,7 +369,7 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -393,7 +393,7 @@
 					"name": "PORT"
 				}
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/bookstack2.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/bookstack2.png",
 			"name": "bookstack",
 			"note": "Default login is admin@admin.com with a password of password. The database created is called bookstackapp and the database user is called bookstack",
 			"platform": "linux",
@@ -412,7 +412,7 @@
 			],
 			"description": "Caddy - The Ultimate Server with Automatic HTTPS.  Need to run tools/install_caddy.sh before installing the template.",
 			"image": "caddy:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/caddy.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/caddy.png",
 			"name": "caddy",
 			"note": "Caddy 2 is a powerful, enterprise-ready, open source web server with automatic HTTPS written in Go",
 			"platform": "linux",
@@ -426,15 +426,15 @@
 			"type": 1,
 			"volumes": [
 					{
-							"bind": "/container/Caddy/Data",
+							"bind": "/portainer/Files/AppData/Config/Caddy/Data",
 							"container": "/data"
 					},
 					{
-							"bind": "/container/Caddy/Config",
+							"bind": "/portainer/Files/AppData/Config/Caddy/Config",
 							"container": "/config"
 					},
 					{
-							"bind": "/container/Caddy/Caddyfile",
+							"bind": "/portainer/Files/AppData/Config/Caddy/Caddyfile",
 							"container": "/etc/caddy/Caddyfile"
 					}
 			]
@@ -484,7 +484,7 @@
 				}
 			],
 			"image": "nmtan/chevereto:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/Chevereto.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/Chevereto.png",
 			"name": "Chevereto",
 			"platform": "linux",
 			"ports": [
@@ -518,7 +518,7 @@
 				}
 			],
 			"image": "linuxserver/calibre-web:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/calibre-web-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/calibre-web-icon.png",
 			"name": "calibre-web",
 			"platform": "linux",
 			"ports": [
@@ -529,11 +529,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Books",
+					"bind": "/portainer/Books",
 					"container": "/books"
 				},
 				{
-					"bind": "/container/Calibre-web",
+					"bind": "/portainer/Files/AppData/Config/Calibre-web",
 					"container": "/config"
 				}
 			]
@@ -556,7 +556,7 @@
 				}
 			],
 			"image": "linuxserver/cardigann:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/cardigann.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cardigann.png",
 			"name": "cardigann",
 			"platform": "linux",
 			"ports": [
@@ -567,7 +567,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Cardigann",
+					"bind": "/portainer/Files/AppData/Config/Cardigann",
 					"container": "/config"
 				}
 			]
@@ -606,7 +606,7 @@
 				}
 			],
 			"image": "favonia/cloudflare-ddns:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/cloudflare-ddns.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cloudflare-ddns.png",
 			"name": "cloudflare-ddns",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -631,7 +631,7 @@
 					"name": "GUID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -650,7 +650,7 @@
 				}
 			],
 			"image": "linuxserver/code-server:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/code-server.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/code-server.png",
 			"name": "code-server",
 			"platform": "linux",
 			"ports": [
@@ -661,7 +661,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Code-Server",
+					"bind": "/portainer/Files/AppData/Config/Code-Server",
 					"container": "/config"
 				}
 			]
@@ -684,7 +684,7 @@
 				}
 			],
 			"image": "linuxserver/codiad:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/codiad-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/codiad-icon.png",
 			"name": "codiad",
 			"platform": "linux",
 			"ports": [
@@ -695,7 +695,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Codiad",
+					"bind": "/portainer/Files/AppData/Config/Codiad",
 					"container": "/config"
 				}
 			]
@@ -719,7 +719,7 @@
 				}
 			],
 			"image": "linuxserver/cops:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/cops-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cops-icon.png",
 			"name": "cops",
 			"platform": "linux",
 			"ports": [
@@ -730,11 +730,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Books",
+					"bind": "/portainer/Books",
 					"container": "/books"
 				},
 				{
-					"bind": "/container/Cops",
+					"bind": "/portainer/Files/AppData/Config/Cops",
 					"container": "/config"
 				}
 			]
@@ -758,7 +758,7 @@
 				}
 			],
 			"image": "linuxserver/couchpotato:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/couchpotato-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/couchpotato-icon.png",
 			"name": "couchpotato",
 			"platform": "linux",
 			"ports": [
@@ -769,15 +769,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Couchpotato",
+					"bind": "/portainer/Files/AppData/Config/Couchpotato",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/movies"
 				}
 			]
@@ -811,11 +811,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Daapd",
+					"bind": "/portainer/Files/AppData/Config/Daapd",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				}
 			]
@@ -827,7 +827,7 @@
 			],
 			"description": "Another application bookmark dashboard, with fun features.",
 			"image": "failed2run/dashmachine:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/dashmachine_logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/dashmachine_logo.png",
 			"name": "dashmachine",
 			"platform": "linux",
 			"ports": [
@@ -838,7 +838,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Dashmachine",
+					"bind": "/portainer/Files/AppData/Config/Dashmachine",
 					"container": "/dashmachine/dashmachine/user_data"
 				}
 			]
@@ -863,7 +863,7 @@
 				}
 			],
 			"image": "linuxserver/davos:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/davos.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/davos.png",
 			"name": "davos",
 			"platform": "linux",
 			"ports": [
@@ -874,11 +874,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Davos",
+					"bind": "/portainer/Files/AppData/Config/Davos",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -890,7 +890,7 @@
 			],
 			"description": "Deemix is a deezer downloader built from the ashes of Deezloader Remix.",
 			"image": "registry.gitlab.com/bockiii/deemix-docker",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/deemix.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/deemix.png",
 			"name": "deemix",
 			"note": "Deemix may take a few minutes to install. Be sure to check the logs for details. Refer to \u003ca href='https://notabug.org/RemixDevs/DeezloaderRemix/wiki/Login+via+userToken'\u003ethis page\u003c/a\u003e for userToken details.",
 			"platform": "linux",
@@ -902,11 +902,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/DeeMix",
+					"bind": "/portainer/Files/AppData/Config/DeeMix",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -934,7 +934,7 @@
 				}
 			],
 			"image": "linuxserver/deluge:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/deluge-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/deluge-icon.png",
 			"name": "deluge",
 			"platform": "linux",
 			"ports": [
@@ -946,11 +946,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Deluge",
+					"bind": "/portainer/Files/AppData/Config/Deluge",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -1013,11 +1013,11 @@
 					"container": "/etc/localtime"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/DelugeOpenVPN/config",
+					"bind": "/portainer/Files/AppData/Config/DelugeOpenVPN/config",
 					"container": "/config"
 				}
 			]
@@ -1054,7 +1054,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Domoticz",
+					"bind": "/portainer/Files/AppData/Config/Domoticz",
 					"container": "/config"
 				}
 			]
@@ -1066,7 +1066,7 @@
 			],
 			"description": "Dozzle is a real-time log viewer for docker containers.",
 			"image": "amir20/dozzle:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/dozzle.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/dozzle.png",
 			"name": "dozzle",
 			"note": "View logs for docker containers.",
 			"platform": "linux",
@@ -1089,7 +1089,7 @@
 			],
 			"description": "Dradis Framework: Collaboration and reporting for IT Security teams http://dradisframework.org",
 			"image": "raesene/dradis:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/dradis-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/dradis-logo.png",
 			"name": "dradis",
 			"platform": "linux",
 			"ports": [
@@ -1119,7 +1119,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -1144,7 +1144,7 @@
 					"name": "MYSQL_ROOT_PASSWORD"
 				}
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/drupal.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/drupal.png",
 			"name": "drupal",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -1152,7 +1152,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/drupal.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted/"
+				"url": "https://github.com/kimostberg/dockerpi/"
 			}
 		},
 		{
@@ -1183,13 +1183,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "linuxserver/duckdns:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/duckdns.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/duckdns.png",
 			"name": "duckdns",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -1218,7 +1218,7 @@
 				}
 			],
 			"image": "linuxserver/duplicati:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/duplicati-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/duplicati-icon.png",
 			"name": "duplicati",
 			"platform": "linux",
 			"ports": [
@@ -1229,7 +1229,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Duplicati",
+					"bind": "/portainer/Files/AppData/Config/Duplicati",
 					"container": "/config"
 				},
 				{
@@ -1248,7 +1248,7 @@
 				"Other",
 				"Tools"
 			],
-			"description": "Eclipse Mosquitto is an open source implementation of a server for versions 5, 3.1.1, and 3.1 of the MQTT protocol.\r\nYou will need to create /container/Mosquitto/config/mosquitto.conf and if needed your password file.\r\nHave a look on https://mosquitto.org/man/mosquitto_passwd-1.html",
+			"description": "Eclipse Mosquitto is an open source implementation of a server for versions 5, 3.1.1, and 3.1 of the MQTT protocol.\r\nYou will need to create /portainer/Files/AppData/Config/Mosquitto/config/mosquitto.conf and if needed your password file.\r\nHave a look on https://mosquitto.org/man/mosquitto_passwd-1.html",
 			"image": "eclipse-mosquitto:latest",
 			"logo": "https://raw.githubusercontent.com/docker-library/docs/757578e3a44e5460a8a11d32a81776f8b74231a9/eclipse-mosquitto/logo.png",
 			"name": "mosquitto",
@@ -1262,15 +1262,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Mosquitto/config",
+					"bind": "/portainer/Files/AppData/Config/Mosquitto/config",
 					"container": "/mosquitto/config"
 				},
 				{
-					"bind": "/container/Mosquitto/data",
+					"bind": "/portainer/Files/AppData/Config/Mosquitto/data",
 					"container": "/mosquitto/data"
 				},
 				{
-					"bind": "/container/Mosquitto/log",
+					"bind": "/portainer/Files/AppData/Config/Mosquitto/log",
 					"container": "/mosquitto/log"
 				}
 			]
@@ -1294,13 +1294,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "linuxserver/emby:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/emby.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/emby.png",
 			"name": "emby",
 			"platform": "linux",
 			"ports": [
@@ -1312,15 +1312,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Emby",
+					"bind": "/portainer/Files/AppData/Config/Emby",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/data/tvshows"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/data/movies"
 				}
 			]
@@ -1332,7 +1332,7 @@
 			],
 			"description": "Embystat is a personal web server that can calculate all kinds of statistics from your (local) Emby server. Just install this on your server and let him calculate all kinds of fun stuff.",
 			"image": "linuxserver/embystat:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/embystat.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/embystat.png",
 			"name": "embystat",
 			"note": "Access the ui at your-ip:6555. Follow the setup wizard on initial install. Then configure the required services.",
 			"platform": "linux",
@@ -1344,7 +1344,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/EmbyStat",
+					"bind": "/portainer/Files/AppData/Config/EmbyStat",
 					"container": "/config"
 				}
 			]
@@ -1356,7 +1356,7 @@
 			],
 			"description": "[arm] Web File Browser which can be used as a middleware or standalone app.",
 			"image": "filebrowser/filebrowser:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/filebrowser.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/filebrowser.png",
 			"name": "filebrowser",
 			"note": "The default user and password is admin/admin.",
 			"platform": "linux",
@@ -1368,7 +1368,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/srv"
 				}
 			]
@@ -1380,7 +1380,7 @@
 			],
 			"description": "Flame is self-hosted startpage for your server. Its design is inspired (heavily) by SUI. Flame is very easy to setup and use. With built-in editors, it allows you to setup your very own application hub in no time - no file editing necessary.",
 			"image": "pawelmalak/flame:multiarch",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/flame.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/flame.png",
 			"name": "Flame",
 			"platform": "linux",
 			"ports": [
@@ -1398,7 +1398,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Flame/data",
+					"bind": "/portainer/Files/AppData/Config/Flame/data",
 					"container": "/app/data"
 				},
 				{
@@ -1414,7 +1414,7 @@
 			],
 			"description": "This docker image provides the FoundryVTT system for hosting your own virtual table top games.",
 			"image": "felddy/foundryvtt:release",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/foundrylogo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/foundrylogo.png",
 			"name": "FoundryVTT",
 			"platform": "linux",
 			"type": 1,
@@ -1423,7 +1423,7 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/foundryvtt",
+					"bind": "/portainer/Files/AppData/Config/foundryvtt",
 					"container": "/data"
 				}
 			],
@@ -1470,7 +1470,7 @@
 				}
 			],
 			"image": "linuxserver/freshrss:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/freshrss-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/freshrss-icon.png",
 			"name": "freshrss",
 			"platform": "linux",
 			"ports": [
@@ -1481,7 +1481,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/freshrss",
+					"bind": "/portainer/Files/AppData/Config/freshrss",
 					"container": "/config"
 				}
 			]
@@ -1506,7 +1506,7 @@
 				}
 			],
 			"image": "linuxserver/gazee:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/gazee-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/gazee-logo.png",
 			"name": "gazee",
 			"platform": "linux",
 			"ports": [
@@ -1517,15 +1517,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Gazee",
+					"bind": "/portainer/Files/AppData/Config/Gazee",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Comics",
+					"bind": "/portainer/Comics",
 					"container": "/comics"
 				},
 				{
-					"bind": "/container/Gazee",
+					"bind": "/portainer/Files/AppData/Gazee",
 					"container": "/mylar"
 				}
 			]
@@ -1537,7 +1537,7 @@
 			],
 			"description": "A simple server for sending and receiving messages",
 			"image": "gotify/server-arm7:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/gotify.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/gotify.png",
 			"name": "gotify",
 			"note": "ARM7 Image. Documentation is Available \u003ca href='https://gotify.net/docs/index'\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -1549,13 +1549,13 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/gotify",
+					"bind": "/portainer/Files/AppData/Config/gotify",
 					"container": "/app/data"
 				}
 			],
 			"env": [
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -1591,13 +1591,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "Timezone",
 					"name": "TZ"
 				}
 			],
 			"image": "linuxserver/grocy:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/grocy_logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/grocy_logo.png",
 			"name": "grocy",
 			"platform": "linux",
 			"ports": [
@@ -1608,7 +1608,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Grocy",
+					"bind": "/portainer/Files/AppData/Config/Grocy",
 					"container": "/config"
 				}
 			]
@@ -1620,7 +1620,7 @@
 			],
 			"description": "[arm] A clientless remote desktop gateway.",
 			"image": "oznu/guacamole:armhf",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/guacamole.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/guacamole.png",
 			"name": "guacamole",
 			"note": "The default login will be guacadmin/guacadmin. It is common practice to add a new admin user and remove the default user for Guacamole.",
 			"platform": "linux",
@@ -1632,7 +1632,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Guacamole",
+					"bind": "/portainer/Files/AppData/Config/Guacamole",
 					"container": "/config"
 				}
 			]
@@ -1655,7 +1655,7 @@
 				}
 			],
 			"image": "linuxserver/headphones:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/headphones-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/headphones-icon.png",
 			"name": "headphones",
 			"platform": "linux",
 			"ports": [
@@ -1666,15 +1666,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Headphones",
+					"bind": "/portainer/Files/AppData/Config/Headphones",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/Downloads"
 				},
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				}
 			]
@@ -1699,7 +1699,7 @@
 				}
 			],
 			"image": "linuxserver/heimdall:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/heimdall-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/heimdall-icon.png",
 			"name": "heimdall",
 			"platform": "linux",
 			"ports": [
@@ -1711,7 +1711,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Heimdall",
+					"bind": "/portainer/Files/AppData/Config/Heimdall",
 					"container": "/config"
 				}
 			]
@@ -1719,7 +1719,7 @@
 		{
 			"description": "Home Assistant is a free and open-source software for home automation that is designed to be the central control system for smart home devices with focus on local control and privacy.",
 			"image": "homeassistant/home-assistant:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/homeassistant.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/homeassistant.png",
 			"name": "home assistant",
 			"platform": "linux",
 			"ports": [
@@ -1729,7 +1729,7 @@
 			"title": "Home Assistant",
 			"volumes": [
 				{
-					"bind": "/container/HomeAssistant/assets",
+					"bind": "/portainer/Files/AppData/Config/HomeAssistant/assets",
 					"container": "/config"
 				}
 			]
@@ -1761,13 +1761,13 @@
 					"name": "HOMEBRIDGE_CONFIG_UI_PORT"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "oznu/homebridge:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/homebridge.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/homebridge.png",
 			"name": "homebridge",
 			"network": "host",
 			"note": "Bringing HomeKit support where there is none",
@@ -1778,7 +1778,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/homebridge",
+					"bind": "/portainer/Files/AppData/Config/homebridge",
 					"container": "/homebridge"
 				}
 			]
@@ -1810,13 +1810,13 @@
 					"name": "HOMEBRIDGE_CONFIG_UI_PORT"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "oznu/homebridge:debian-arm32v7",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/homebridge.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/homebridge.png",
 			"name": "homebridge-debian",
 			"network": "host",
 			"note": "Bringing HomeKit support where there is none",
@@ -1827,7 +1827,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/debian-homebridge",
+					"bind": "/portainer/Files/AppData/Config/debian-homebridge",
 					"container": "/homebridge"
 				}
 			]
@@ -1839,7 +1839,7 @@
 			],
 			"description": "A dead simple static HOMepage for your servER to keep your s ervices on hand, from a simple yaml configuration file.",
 			"image": "b4bz/homer:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/homer.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/homer.png",
 			"name": "homer",
 			"note": "This container requires a yml file within the config volume. See the documentation here https://github.com/bastienwirtz/homer",
 			"platform": "linux",
@@ -1863,11 +1863,11 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/Homer/assets",
+					"bind": "/portainer/Files/AppData/Config/Homer/assets",
 					"container": "/www/assets"
 				},
 				{
-					"bind": "/container/Homer",
+					"bind": "/portainer/Files/AppData/Config/Homer",
 					"container": "/www/config.yml"
 				}
 			]
@@ -1892,7 +1892,7 @@
 				}
 			],
 			"image": "linuxserver/htpcmanager:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/htpcmanager-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/htpcmanager-icon.png",
 			"name": "htpcmanager",
 			"platform": "linux",
 			"ports": [
@@ -1903,7 +1903,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/HTPCmanager",
+					"bind": "/portainer/Files/AppData/Config/HTPCmanager",
 					"container": "/config"
 				}
 			]
@@ -1915,7 +1915,7 @@
 			],
 			"description": "Create agents that monitor and act on your behalf.",
 			"image": "mjysci/huginn:arm32v7",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/huginn.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/huginn.png",
 			"name": "huginn",
 			"platform": "linux",
 			"ports": [
@@ -1926,7 +1926,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/huginn",
+					"bind": "/portainer/Files/AppData/Config/huginn",
 					"container": "/var/lib/mysql"
 				}
 			]
@@ -1936,7 +1936,7 @@
 				"Other",
 				"Tools"
 			],
-			"description": "InfluxDB is an open source time series database for recording metrics, events, and analytics. You will need to add /container/Influxdb/config/influxdb.conf",
+			"description": "InfluxDB is an open source time series database for recording metrics, events, and analytics. You will need to add /portainer/Files/AppData/Config/Influxdb/config/influxdb.conf",
 			"image": "influxdb:1.8.10",
 			"logo": "https://raw.githubusercontent.com/docker-library/docs/43d87118415bb75d7bb107683e79cd6d69186f67/influxdb/logo.png",
 			"name": "influxdb1810",
@@ -1950,11 +1950,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Influxdb/data",
+					"bind": "/portainer/Files/AppData/Config/Influxdb/data",
 					"container": "/var/lib/influxdb"
 				},
 				{
-					"bind": "/container/Influxdb/config",
+					"bind": "/portainer/Files/AppData/Config/Influxdb/config",
 					"container": "/var/lib/influxdb"
 				}
 			]
@@ -1978,7 +1978,7 @@
 				}
 			],
 			"image": "linuxserver/jackett:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/jacket-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/jacket-icon.png",
 			"name": "jackett",
 			"platform": "linux",
 			"ports": [
@@ -1989,11 +1989,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Jackett",
+					"bind": "/portainer/Files/AppData/Config/Jackett",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -2022,7 +2022,7 @@
 				}
 			],
 			"image": "jaymoulin/jdownloader:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/jdownloader.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/jdownloader.png",
 			"name": "JDownloader",
 			"platform": "linux",
 			"ports": [
@@ -2033,11 +2033,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/JDownloader",
+					"bind": "/portainer/Files/AppData/Config/JDownloader",
 					"container": "/opt/JDownloader/cfg"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/opt/JDownloader/Downloads"
 				}
 			]
@@ -2061,13 +2061,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "linuxserver/jellyfin:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/jellyfin.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/jellyfin.png",
 			"name": "jellyfin",
 			"platform": "linux",
 			"ports": [
@@ -2079,15 +2079,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Jelllyfin",
+					"bind": "/portainer/Files/AppData/Config/Jelllyfin",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/data/tvshows"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/data/movies"
 				}
 			]
@@ -2110,7 +2110,7 @@
 				}
 			],
 			"image": "lsioarmhf/kodi-headless:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/kodi-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/kodi-icon.png",
 			"name": "kodi-headless",
 			"platform": "linux",
 			"ports": [
@@ -2123,7 +2123,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Kodi",
+					"bind": "/portainer/Files/AppData/Config/Kodi",
 					"container": "/config/.kodi"
 				}
 			]
@@ -2146,7 +2146,7 @@
 				}
 			],
 			"image": "linuxserver/lazylibrarian:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/lazylibrarian-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/lazylibrarian-icon.png",
 			"name": "lazylibrarian",
 			"platform": "linux",
 			"ports": [
@@ -2221,7 +2221,7 @@
 				}
 			],
 			"image": "linuxserver/letsencrypt:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/letsencrypt.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/letsencrypt.png",
 			"name": "letsencrypt",
 			"platform": "linux",
 			"ports": [
@@ -2233,7 +2233,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/LetsEncrypt",
+					"bind": "/portainer/Files/AppData/Config/LetsEncrypt",
 					"container": "/config"
 				}
 			]
@@ -2245,7 +2245,7 @@
 			],
 			"description": "An alternative private front-end to Reddit",
 			"image": "spikecodes/libreddit:armv7",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/libreddit.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/libreddit.png",
 			"name": "libreddit",
 			"platform": "linux",
 			"ports": [
@@ -2256,7 +2256,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/libreddit",
+					"bind": "/portainer/Files/AppData/Config/libreddit",
 					"container": "/config"
 				}
 			]
@@ -2280,7 +2280,7 @@
                                 }
                         ],
 			"image": "linuxserver/librespeed:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/speedtest.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/speedtest.png",
 			"name": "librespeed",
 			"platform": "linux",
 			"ports": [
@@ -2291,7 +2291,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/LibreSpeed",
+					"bind": "/portainer/Files/AppData/Config/LibreSpeed",
 					"container": "/config"
 				}
 			]
@@ -2315,7 +2315,7 @@
 				}
 			],
 			"image": "linuxserver/lidarr:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/lidarr.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/lidarr.png",
 			"name": "lidarr",
 			"platform": "linux",
 			"ports": [
@@ -2326,15 +2326,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Lidarr",
+					"bind": "/portainer/Files/AppData/Config/Lidarr",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Music",
+					"bind": "/portainer/Music",
 					"container": "/music"
 				}
 			]
@@ -2385,7 +2385,7 @@
                                 }
 			],
 			"image": "linuxserver/lychee:arm32v7-latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/lychee-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/lychee-icon.png",
 			"name": "lychee",
 			"platform": "linux",
 			"ports": [
@@ -2396,11 +2396,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Lychee",
+					"bind": "/portainer/Files/AppData/Config/Lychee",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Pictures",
+					"bind": "/portainer/Pictures",
 					"container": "/pictures"
 				}
 			]
@@ -2425,7 +2425,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -2450,7 +2450,7 @@
                     "default": ""
                 }
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/lychee-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/lychee-icon.png",
 			"name": "lychee-mariadb",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -2458,7 +2458,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/lychee-mariadb.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted/"
+				"url": "https://github.com/kimostberg/dockerpi/"
 			}
 		},
 		{
@@ -2500,7 +2500,7 @@
                 }
 			],
 			"image": "linuxserver/mariadb:arm32v7-latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/mariadb-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/mariadb-icon.png",
 			"name": "mariadb",
 			"platform": "linux",
 			"ports": [
@@ -2511,7 +2511,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Mariadb",
+					"bind": "/portainer/Files/AppData/Config/Mariadb",
 					"container": "/config"
 				}
 			]
@@ -2523,7 +2523,7 @@
 			],
 			"description": "[DEPRECATED] Arm32 support dropped at v0.4.3. A self-hosted recipe manager and meal planner",
 			"image": "hkotel/mealie:v0.4.3",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/mealie.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/mealie.png",
 			"name": "mealie",
 			"note": "Default Credentials: Username: changeme@email.com Password: MyPassword. Documentation is Available \u003ca href='https://hay-kot.github.io/mealie/documentation/getting-started/install/'\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -2535,7 +2535,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/mealie",
+					"bind": "/portainer/Files/AppData/Config/mealie",
 					"container": "/app/data"
 				}
 			],
@@ -2551,7 +2551,7 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -2616,7 +2616,7 @@
 				}
 			],
 			"image": "linuxserver/medusa:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/medusa-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/medusa-icon.png",
 			"name": "medusa",
 			"platform": "linux",
 			"ports": [
@@ -2627,15 +2627,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Medusa",
+					"bind": "/portainer/Files/AppData/Config/Medusa",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -2648,7 +2648,7 @@
 			],
 			"description": "This docker image provides a Minecraft Server that will automatically download the latest stable version at startup. You can also run/upgrade to any specific version or the latest snapshot. See the Versions section below for more information.",
             "image": "itzg/minecraft-server:latest",
-                        "logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/minecraft.png",
+                        "logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/minecraft.png",
                         "name": "minecraft",
                         "platform": "linux",
                         "type": 1,
@@ -2657,7 +2657,7 @@
                         ],
                         "volumes": [
                                 {
-                                        "bind": "/container/Minecraft-data",
+                                        "bind": "/portainer/Files/AppData/Config/Minecraft-data",
                                         "container": "/data"
                                 }
                         ],
@@ -2724,7 +2724,7 @@
 				}
 			],
 			"image": "linuxserver/minisatip:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/minisatip-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/minisatip-icon.png",
 			"name": "minisatip",
 			"platform": "linux",
 			"ports": [
@@ -2743,7 +2743,7 @@
 			],
 			"description": "Mstream is a personal music streaming server. You can use mStream to stream your music from your home computer to any device, anywhere. There are mobile apps available for both Android and iPhone..",
 			"image": "linuxserver/mstream:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/mstream.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/mstream.png",
 			"name": "mstream",
 			"platform": "linux",
 			"ports": [
@@ -2766,11 +2766,11 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/Mstream",
+					"bind": "/portainer/Files/AppData/Config/Mstream",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/music"
 				}
 			]
@@ -2794,13 +2794,13 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
 			"image": "yhaenggi/murmur:1.3.4",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/Mumble-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/Mumble-logo.png",
 			"name": "murmur",
 			"platform": "linux",
 			"ports": [
@@ -2816,15 +2816,15 @@
 					"container": "/etc/localtime"
 				},
 				{
-					"bind": "/container/Files/Config/Murmur",
+					"bind": "/portainer/Files/Config/Murmur",
 					"container": "/opt/murmur/config"
 				},
 				{
-					"bind": "/container/Files/Murmur/data",
+					"bind": "/portainer/Files/Murmur/data",
 					"container": "/opt/murmur/data"
 				},
 				{
-					"bind": "/container/Files/Murmur/log",
+					"bind": "/portainer/Files/Murmur/log",
 					"container": "/opt/murmur/log"
 				}
 			]
@@ -2854,7 +2854,7 @@
 				}
 			],
 			"image": "linuxserver/musicbrainz:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/musicbrainz-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/musicbrainz-icon.png",
 			"name": "musicbrainz",
 			"platform": "linux",
 			"ports": [
@@ -2865,11 +2865,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/MusicBrainz",
+					"bind": "/portainer/Files/AppData/Config/MusicBrainz",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/MusicBrainz",
+					"bind": "/portainer/Files/AppData/MusicBrainz",
 					"container": "/data"
 				}
 			]
@@ -2895,7 +2895,7 @@
 				}
 			],
 			"image": "linuxserver/muximux:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/muximux-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/muximux-icon.png",
 			"name": "muximux",
 			"platform": "linux",
 			"ports": [
@@ -2906,7 +2906,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Muximux",
+					"bind": "/portainer/Files/AppData/Config/Muximux",
 					"container": "/config"
 				}
 			]
@@ -2930,7 +2930,7 @@
 				}
 			],
 			"image": "linuxserver/mylar3:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/mylar-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/mylar-icon.png",
 			"name": "mylar",
 			"platform": "linux",
 			"ports": [
@@ -2941,15 +2941,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Mylar",
+					"bind": "/portainer/Files/AppData/Config/Mylar",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Comics",
+					"bind": "/portainer/Comics",
 					"container": "/comics"
 				}
 			]
@@ -2961,7 +2961,7 @@
 			],
 			"description": "n8n is an extendable workflow automation tool.",
 			"image": "n8nio/n8n:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/n8n.jpg",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/n8n.jpg",
 			"name": "n8n",
 			"note": "Documentation is Available \u003ca href='https://docs.n8n.io/'\u003ehere\u003c/a\u003e",
 			"platform": "linux",
@@ -2973,7 +2973,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/n8n",
+					"bind": "/portainer/Files/AppData/Config/n8n",
 					"container": "/home/node/.n8n"
 				}
 			],
@@ -3002,7 +3002,7 @@
 			],
 			"description": "Troubleshoot slowdowns and anomalies in your infrastructure with thousands of per-second metrics, meaningful visualizations, and insightful health alarms with zero configuration.",
 			"image": "netdata/netdata:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/netdata.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/netdata.png",
 			"name": "netdata",
 			"note": "Documentation is Available \u003ca href='https://learn.netdata.cloud/'\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -3014,11 +3014,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/netdata/netdataconfig",
+					"bind": "/portainer/Files/AppData/Config/netdata/netdataconfig",
 					"container": "/etc/netdata"
 				},
 				{
-					"bind": "/container/netdata/netdatalib",
+					"bind": "/portainer/Files/AppData/Config/netdata/netdatalib",
 					"container": "/var/lib/netdata"
 				},
 				{
@@ -3076,7 +3076,7 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				},
@@ -3093,7 +3093,7 @@
 					"name": "PORT"
 				}
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/nextcloud-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/nextcloud-icon.png",
 			"name": "nextcloud",
 			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
 			"platform": "linux",
@@ -3138,7 +3138,7 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/ncdata",
+					"bind": "/portainer/Files/AppData/Config/ncdata",
 					"container": "/data"
 				}
 			]	
@@ -3162,7 +3162,7 @@
 				}
 			],
 			"image": "linuxserver/nginx:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/nginx-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/nginx-icon.png",
 			"name": "nginx",
 			"platform": "linux",
 			"ports": [
@@ -3174,7 +3174,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Nginx",
+					"bind": "/portainer/Files/AppData/Config/Nginx",
 					"container": "/config"
 				}
 			]
@@ -3184,8 +3184,8 @@
 				"Proxy",
 				"Tools"
 			],
-			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/pi-hosted/pi-hosted/tree/master/docs installing the template",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/proxy_mgr.png",
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/kimostberg/dockerpi/tree/master/docs installing the template",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/proxy_mgr.png",
 			"name": "nginx-proxy-manager",
 			"platform": "linux",
 			"ports": [
@@ -3205,7 +3205,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -3243,12 +3243,12 @@
 					"name": "NODE_RED_CREDENTIAL_SECRET"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
 					"label": "TZ",
 					"name": "TZ"
 				}
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/node-red.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/node-red.png",
 			"name": "node-red",
 			"platform": "linux",
 			"ports": [
@@ -3259,7 +3259,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/node-red.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted/"
+				"url": "https://github.com/kimostberg/dockerpi/"
 			}
 		},
 		{
@@ -3280,7 +3280,7 @@
 				}
 			],
 			"image": "linuxserver/nzbget:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/nzbget-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/nzbget-icon.png",
 			"name": "nzbget",
 			"platform": "linux",
 			"ports": [
@@ -3291,11 +3291,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Nzbget",
+					"bind": "/portainer/Files/AppData/Config/Nzbget",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -3320,7 +3320,7 @@
 				}
 			],
 			"image": "linuxserver/nzbhydra2:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/hydra-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/hydra-icon.png",
 			"name": "nzbhydra2",
 			"platform": "linux",
 			"ports": [
@@ -3331,11 +3331,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Nzbhydra2",
+					"bind": "/portainer/Files/AppData/Config/Nzbhydra2",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -3359,7 +3359,7 @@
 				}
 			],
 			"image": "mbentley/omada-controller:latest-armv7l",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/omada.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/omada.png",
 			"name": "omada-controller",
 			"platform": "linux",
 			"ports": [
@@ -3377,7 +3377,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Omada",
+					"bind": "/portainer/Files/AppData/Config/Omada",
 					"container": "/config"
 				}
 			]
@@ -3403,7 +3403,7 @@
 				}
 			],
 			"image": "linuxserver/ombi:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/ombi.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/ombi.png",
 			"name": "ombi",
 			"platform": "linux",
 			"ports": [
@@ -3414,7 +3414,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Ombi",
+					"bind": "/portainer/Files/AppData/Config/Ombi",
 					"container": "/config"
 				}
 			]
@@ -3442,7 +3442,7 @@
 				}
 			],
 			"image": "linuxserver/openvpn-as:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/openvpn-as-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/openvpn-as-icon.png",
 			"name": "openvpn-as",
 			"platform": "linux",
 			"ports": [
@@ -3455,7 +3455,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/OpenVPN-AS",
+					"bind": "/portainer/Files/AppData/Config/OpenVPN-AS",
 					"container": "/config"
 				}
 			]
@@ -3479,7 +3479,7 @@
 				}
 			],
 			"image": "organizr/organizr:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/organizr-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/organizr-icon.png",
 			"name": "organizr-v2",
 			"platform": "linux",
 			"ports": [
@@ -3490,7 +3490,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Organizr",
+					"bind": "/portainer/Files/AppData/Config/Organizr",
 					"container": "/config"
 				}
 			]
@@ -3525,7 +3525,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/OScam",
+					"bind": "/portainer/Files/AppData/Config/OScam",
 					"container": "/config"
 				}
 			]
@@ -3538,7 +3538,7 @@
 			],
 			"description": "Paperless is an application by Daniel Quinn and contributors that indexes your scanned documents and allows you to easily search for documents and store metadata alongside your documents. https://github.com/jonaswinkler/paperless-ng",
 			"image": "linuxserver/paperless-ng",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/paperless.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/paperless.png",
 			"name": "paperless",
 			"platform": "linux",
 			"ports": [
@@ -3561,11 +3561,11 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/paperless/config",
+					"bind": "/portainer/Files/AppData/Config/paperless/config",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/paperless/data",
+					"bind": "/portainer/Files/AppData/Config/paperless/data",
 					"container": "/data"
 				}
 			]
@@ -3588,7 +3588,7 @@
 				}
 			],
 			"image": "linuxserver/photoshow:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/photoshow-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/photoshow-icon.png",
 			"name": "photoshow",
 			"platform": "linux",
 			"ports": [
@@ -3599,15 +3599,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Pictures",
+					"bind": "/portainer/Pictures",
 					"container": "/Pictures"
 				},
 				{
-					"bind": "/container/Photoshow/Thumbs",
+					"bind": "/portainer/Files/AppData/Photoshow/Thumbs",
 					"container": "/Thumbs"
 				},
 				{
-					"bind": "/container/PhotoShow",
+					"bind": "/portainer/Files/AppData/Config/PhotoShow",
 					"container": "/config"
 				}
 			]
@@ -3619,7 +3619,7 @@
 			],
 			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole.",
 			"image": "pihole/pihole:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pihole.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pihole.png",
 			"name": "pihole",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53.",
 			"platform": "linux",
@@ -3635,11 +3635,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/PiHole",
+					"bind": "/portainer/Files/AppData/Config/PiHole",
 					"container": "/etc/pihole"
 				},
 				{
-					"bind": "/container/PiHole/DNS",
+					"bind": "/portainer/Files/AppData/Config/PiHole/DNS",
 					"container": "/etc/dnsmasq.d"
 				}
 			]
@@ -3651,7 +3651,7 @@
 			],
 			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole with both DoH (DNS over HTTPS) and DoT (DNS over TLS) clients.",
 			"image": "oijkn/pihole-doh-dot:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pihole_doh-dot.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pihole_doh-dot.png",
 			"name": "pihole DoH/DoT",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53.",
 			"platform": "linux",
@@ -3667,11 +3667,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/PiHole_DoH-DoT",
+					"bind": "/portainer/Files/AppData/Config/PiHole_DoH-DoT",
 					"container": "/etc/pihole"
 				},
 				{
-					"bind": "/container/PiHole_DoH-DoT/DNS",
+					"bind": "/portainer/Files/AppData/Config/PiHole_DoH-DoT/DNS",
 					"container": "/etc/dnsmasq.d"
 				}
 			]
@@ -3682,16 +3682,11 @@
 				"Tools"
 			],
 			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pihole-unbound.png",
+			"image": "cbcrowe/pihole-unbound:latest",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pihole-unbound.png",
 			"name": "pihole-unbound",
 			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53. For extra information on this container visit the mainteiner \u003ca href='https://github.com/chriscrowe/docker-pihole-unbound/tree/master/one-container'\u003eGitHub Page\u003c/a\u003e. You can add ports: 5335 to access Ubound externally; 22 to enable SSH; 67 to use DHCP Server. Add those ports in Show advanced options.",
 			"platform": "linux",
-			"title": "Pi-Hole-Unbound",
-			"type": 3,
-			"repository": {
-				"stackfile": "stack/pihole-unbound.yml",
-				"url": "https://github.com/kimostberg/dockerpi"
-			},
 			"ports": [
 				"53:53/tcp",
 				"53:53/udp",
@@ -3699,30 +3694,14 @@
 				"4443:443/tcp"
 			],
 			"restart_policy": "unless-stopped",
+			"title": "Pi-Hole-Unbound",
+			"type": 1,
 			"env": [
 				{
-					"default": "10.13.37.250",
+					"default": "192.168.0.X",
 					"label": "ServerIP",
 					"name": "ServerIP",
 					"description": "Insert the Raspberry Pi IP here"
-				},
-				{
-					"default": "pihole",
-					"label": "HOSTNAME",
-					"name": "HOSTNAME",
-					"description": "Insert the container name here"
-				},
-				{
-					"default": "172.20.0.250",
-					"label": "PiHoleIP",
-					"name": "PiHoleIP",
-					"description": "Pihole internal frontend IP"
-				},
-				{
-					"default": "piholepassword",
-					"label": "WEBPASSWORD",
-					"name": "WEBPASSWORD",
-					"description": "Write super secure password here"
 				},
 				{
 					"default": "Europe/Istanbul",
@@ -3759,11 +3738,11 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/PiHole-Unbound",
+					"bind": "/portainer/Files/AppData/Config/PiHole-Unbound",
 					"container": "/etc/pihole"
 				},
 				{
-					"bind": "/container/PiHole-Unbound/DNS",
+					"bind": "/portainer/Files/AppData/Config/PiHole-Unbound/DNS",
 					"container": "/etc/dnsmasq.d"
 				}
 			]
@@ -3786,7 +3765,7 @@
 				}
 			],
 			"image": "linuxserver/piwigo:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/piwigo-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/piwigo-icon.png",
 			"name": "piwigo",
 			"platform": "linux",
 			"ports": [
@@ -3797,7 +3776,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/PiWigo",
+					"bind": "/portainer/Files/AppData/Config/PiWigo",
 					"container": "/config"
 				}
 			]
@@ -3827,7 +3806,7 @@
 				}
 			],
 			"image": "linuxserver/plex:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/plex-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/plex-icon.png",
 			"name": "plex",
 			"network": "host",
 			"platform": "linux",
@@ -3836,15 +3815,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Plex",
+					"bind": "/portainer/Files/AppData/Config/Plex",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/movies"
 				}
 			]
@@ -3870,7 +3849,7 @@
 				}
 			],
 			"image": "privatebin/nginx-fpm-alpine:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/privatebin.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/privatebin.png",
 			"name": "privatebin",
 			"platform": "linux",
 			"ports": [
@@ -3882,11 +3861,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/PrivateBin",
+					"bind": "/portainer/Files/AppData/PrivateBin",
 					"container": "/srv/data"
 				},
 				{
-					"bind": "/container/PrivateBin",
+					"bind": "/portainer/Files/AppData/Config/PrivateBin",
 					"container": "/srv/cfg"
 				}
 			]
@@ -3912,7 +3891,7 @@
 				}
 			],
 			"image": "linuxserver/projectsend:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/projectsend-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/projectsend-logo.png",
 			"name": "projectsend",
 			"platform": "linux",
 			"ports": [
@@ -3923,11 +3902,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/ProjectSend",
+					"bind": "/portainer/Files/AppData/ProjectSend",
 					"container": "/data"
 				},
 				{
-					"bind": "/container/ProjectSend",
+					"bind": "/portainer/Files/AppData/Config/ProjectSend",
 					"container": "/config"
 				}
 			]
@@ -3951,7 +3930,7 @@
 				}
 			],
 			"image": "linuxserver/pydio:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/pydio-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pydio-icon.png",
 			"name": "pydio",
 			"platform": "linux",
 			"ports": [
@@ -3962,11 +3941,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Pydio",
+					"bind": "/portainer/Files/AppData/Config/Pydio",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Pydio",
+					"bind": "/portainer/Files/AppData/Pydio",
 					"container": "/data"
 				}
 			]
@@ -3989,7 +3968,7 @@
 				}
 			],
 			"image": "linuxserver/qbittorrent:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/qbittorrent-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/qbittorrent-icon.png",
 			"name": "qbittorrent",
 			"platform": "linux",
 			"ports": [
@@ -4002,11 +3981,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/qBittorrent",
+					"bind": "/portainer/Files/AppData/Config/qBittorrent",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -4029,7 +4008,7 @@
 				}
 			],
 			"image": "linuxserver/quassel-core:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/quassel-core-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/quassel-core-icon.png",
 			"name": "quassel-core",
 			"platform": "linux",
 			"ports": [
@@ -4040,7 +4019,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Quassel-core",
+					"bind": "/portainer/Files/AppData/Config/Quassel-core",
 					"container": "/config"
 				}
 			]
@@ -4064,7 +4043,7 @@
 				}
 			],
 			"image": "linuxserver/radarr:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/radarr.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/radarr.png",
 			"name": "radarr",
 			"platform": "linux",
 			"ports": [
@@ -4075,15 +4054,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Radarr",
+					"bind": "/portainer/Files/AppData/Config/Radarr",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Movies",
+					"bind": "/portainer/Movies",
 					"container": "/movies"
 				}
 			]
@@ -4094,7 +4073,7 @@
 				"Tools"
 			],
 			"description": "Monitor your Raspberry Pi and Dockers using Grafana developed by oijkn. Please download grafana configs from his git https://github.com/oijkn/Docker-Raspberry-PI-Monitoring",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/rpi_monitor.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/rpi_monitor.png",
 			"name": "RaspberryPi-Docker-Monitor",
 			"platform": "linux",
 			"ports": [
@@ -4123,7 +4102,7 @@
 			],
 			"description": "Open-source project management tool",
 			"note":"Default user and password are admin/admin",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/redmine.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/redmine.png",
 			"name": "redmine",
 			"platform": "linux",
 			"ports": [
@@ -4141,7 +4120,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -4200,7 +4179,7 @@
 				}
 			],
 			"image": "linuxserver/resilio-sync:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/resilio.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/resilio.png",
 			"name": "resilio-sync",
 			"platform": "linux",
 			"ports": [
@@ -4212,14 +4191,14 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Resilio-Sync",
+					"bind": "/portainer/Files/AppData/Config/Resilio-Sync",
 					"container": "/config"
 				},
 				{
 					"container": "/sync"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -4242,7 +4221,7 @@
 					"name": "PGID"
 				},
 				{
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -4303,15 +4282,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/ruTorrent/config",
+					"bind": "/portainer/Files/AppData/Config/ruTorrent/config",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/ruTorrent/passwd",
+					"bind": "/portainer/Files/AppData/Config/ruTorrent/passwd",
 					"container": "/passwd"
 				}
 			]
@@ -4334,7 +4313,7 @@
 				}
 			],
 			"image": "linuxserver/sabnzbd:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/sabnzbd-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/sabnzbd-icon.png",
 			"name": "sabnzbd",
 			"platform": "linux",
 			"ports": [
@@ -4346,15 +4325,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Sabnzbd",
+					"bind": "/portainer/Files/AppData/Config/Sabnzbd",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/Downloads/incomplete",
+					"bind": "/portainer/Downloads/incomplete",
 					"container": "/incomplete-downloads"
 				}
 			]
@@ -4366,7 +4345,7 @@
 			],
 			"description": "Samba has provided secure, stable and fast file and print services for all clients using the SMB/CIFS protocol, such as all versions of DOS and Windows, OS/2, Linux and many others.",
 			"image": "dperson/samba:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/samba.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/samba.png",
 			"name": "Samba",
 			"platform": "linux",
 			"ports": [
@@ -4417,7 +4396,7 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/share"
 				}
 			]
@@ -4429,7 +4408,7 @@
 			],
 			"description": "Open-Source Privacy-respecting metasearch engine",
 			"image": "searxng/searxng:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/searx.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/searx.png",
 			"name": "SearXNG",
 			"platform": "linux",
 			"ports": [
@@ -4452,7 +4431,7 @@
 			],
 			"volumes": [
 				{
-					"bind": "/container/searxng",
+					"bind": "/portainer/Files/AppData/Config/searxng",
 					"container": "/etc/searxng"
 				}
 			]
@@ -4464,7 +4443,7 @@
 			],
 			"description": "Shiori is a simple bookmarks manager written in Go language. Intended as a simple clone of Pocket. You can use it as command line application or as web application.",
 			"image": "nicholaswilde/shiori:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/shiori-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/shiori-icon.png",
 			"name": "shiori",
 			"platform": "linux",
 			"ports": [
@@ -4475,7 +4454,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Shiori",
+					"bind": "/portainer/Files/AppData/Config/Shiori",
 					"container": "/srv/shiori"
 				}
 			]
@@ -4499,7 +4478,7 @@
 				}
 			],
 			"image": "linuxserver/sickchill:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/sickchill-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/sickchill-icon.png",
 			"name": "sickchill",
 			"platform": "linux",
 			"ports": [
@@ -4510,15 +4489,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/SickChill",
+					"bind": "/portainer/Files/AppData/Config/SickChill",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				}
 			]
@@ -4542,7 +4521,7 @@
 				}
 			],
 			"image": "linuxserver/sickgear:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/sickgear-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/sickgear-icon.png",
 			"name": "sickgear",
 			"platform": "linux",
 			"ports": [
@@ -4553,15 +4532,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/SickGear",
+					"bind": "/portainer/Files/AppData/Config/SickGear",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -4584,7 +4563,7 @@
 				}
 			],
 			"image": "linuxserver/smokeping:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/smokeping-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/smokeping-icon.png",
 			"name": "smokeping",
 			"platform": "linux",
 			"ports": [
@@ -4595,11 +4574,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Smokeping",
+					"bind": "/portainer/Files/AppData/Config/Smokeping",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Smokeping",
+					"bind": "/portainer/Files/AppData/Smokeping",
 					"container": "/data"
 				}
 			]
@@ -4611,7 +4590,7 @@
 			],
 			"description": "Snippet Box is a simple self-hosted app for organizing your code snippets.",
 			"image": "pawelmalak/snippet-box:arm",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/snibox.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/snibox.png",
 			"name": "Snippet-box",
 			"note": "Label-oriented interface with search. Supports various programming languages, markdown, plain text.",
 			"platform": "linux",
@@ -4623,7 +4602,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Snippet-box",
+					"bind": "/portainer/Files/AppData/Config/Snippet-box",
 					"container": "/app/data"
 				}
 			]
@@ -4648,7 +4627,7 @@
 				}
 			],
 			"image": "henrywhitaker3/speedtest-tracker:dev-arm",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/speedtest-tracker.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/speedtest-tracker.png",
 			"name": "speedtest-tracker",
 			"platform": "linux",
 			"ports": [
@@ -4659,7 +4638,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/speedtest-tracker",
+					"bind": "/portainer/Files/AppData/Config/speedtest-tracker",
 					"container": "/config"
 				}
 			]
@@ -4671,7 +4650,7 @@
 			],
 			"description": "Sshwifty is a SSH and Telnet connector made for the Web. It can be deployed on your computer or server to provide SSH and Telnet access interface for any compatible (standard) web browser.",
 			"image": "niruix/sshwifty:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/sshwifty-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/sshwifty-icon.png",
 			"name": "Sshwifty",
 			"platform": "linux",
 			"ports": [
@@ -4700,7 +4679,7 @@
 				}
 			],
 			"image": "linuxserver/sonarr:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/sonarr-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/sonarr-icon.png",
 			"name": "sonarr",
 			"platform": "linux",
 			"ports": [
@@ -4711,7 +4690,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Sonarr",
+					"bind": "/portainer/Files/AppData/Config/Sonarr",
 					"container": "/config"
 				},
 				{
@@ -4719,11 +4698,11 @@
 					"container": "/dev/rtc"
 				},
 				{
-					"bind": "/container/TV",
+					"bind": "/portainer/TV",
 					"container": "/tv"
 				},
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/downloads"
 				}
 			]
@@ -4749,7 +4728,7 @@
 				}
 			],
 			"image": "linuxserver/syncthing:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/syncthing-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/syncthing-icon.png",
 			"name": "syncthing",
 			"platform": "linux",
 			"ports": [
@@ -4762,7 +4741,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Syncthing",
+					"bind": "/portainer/Files/AppData/Config/Syncthing",
 					"container": "/config"
 				},
 				{
@@ -4789,7 +4768,7 @@
 				}
 			],
 			"image": "linuxserver/tautulli:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/tautulli-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/tautulli-icon.png",
 			"name": "tautulli",
 			"platform": "linux",
 			"ports": [
@@ -4800,11 +4779,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Logs",
+					"bind": "/portainer/Logs",
 					"container": "/logs"
 				},
 				{
-					"bind": "/container/Tautulli",
+					"bind": "/portainer/Files/AppData/Config/Tautulli",
 					"container": "/config"
 				}
 			]
@@ -4838,7 +4817,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/TheLounge",
+					"bind": "/portainer/Files/AppData/Config/TheLounge",
 					"container": "/config"
 				}
 			]
@@ -4850,7 +4829,7 @@
 			],
 			"description": "A unique, non-linear notebook wiki.",
 			"image": "mazzolino/tiddlywiki:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/tiddlywiki.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/tiddlywiki.png",
 			"name": "tiddlywiki",
 			"platform": "linux",
 			"ports": [
@@ -4861,7 +4840,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/TiddlyWiki",
+					"bind": "/portainer/Files/AppData/Config/TiddlyWiki",
 					"container": "/var/lib/tiddlywiki"
 				}
 			]
@@ -4884,7 +4863,7 @@
 				}
 			],
 			"image": "linuxserver/transmission:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/transmission-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/transmission-icon.png",
 			"name": "transmission",
 			"platform": "linux",
 			"ports": [
@@ -4896,11 +4875,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Transmission",
+					"bind": "/portainer/Files/AppData/Config/Transmission",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Files/Downloads",
+					"bind": "/portainer/Files/Downloads",
 					"container": "/downloads"
 				},
 				{
@@ -4960,7 +4939,7 @@
 				}
 			],
 			"image": "haugene/transmission-openvpn:3.7.1",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/transmission-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/transmission-icon.png",
 			"name": "transmission-openvpn",
 			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -4973,7 +4952,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/data"
 				},
 				{
@@ -5034,7 +5013,7 @@
 				}
 			],
 			"image": "haugene/transmission-openvpn:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/transmission-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/transmission-icon.png",
 			"name": "transmission-openvpn-v4",
 			"note": "List of supported providers available \u003ca href='https://haugene.github.io/docker-transmission-openvpn/supported-providers'/\u003ehere\u003c/a\u003e.",
 			"platform": "linux",
@@ -5047,7 +5026,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Downloads",
+					"bind": "/portainer/Downloads",
 					"container": "/data"
 				},
 				{
@@ -5064,7 +5043,7 @@
 			],
 			"description": "Cloud-Native Networking Stack That Just Works.",
 			"image": "traefik:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/traefik.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/traefik.png",
 			"name": "traefik",
 			"note": "A simple and lightweight reverse proxy",
 			"platform": "linux",
@@ -5078,15 +5057,15 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/traefik/traefik.yml",
+					"bind": "/portainer/Files/AppData/Config/traefik/traefik.yml",
 					"container": "/traefik.yml"
 				},
 				{
-					"bind": "/container/traefik/config.yml",
+					"bind": "/portainer/Files/AppData/Config/traefik/config.yml",
 					"container": "/config.yml"
 				},
 				{
-					"bind": "/container/traefik/acme.json",
+					"bind": "/portainer/Files/AppData/Config/traefik/acme.json",
 					"container": "/acme.json"
 				},
 				{
@@ -5126,7 +5105,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/TVHeadend",
+					"bind": "/portainer/Files/AppData/Config/TVHeadend",
 					"container": "/config"
 				},
 				{
@@ -5158,7 +5137,7 @@
 				}
 			],
 			"image": "linuxserver/ubooquity:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/ubooquity-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/ubooquity-icon.png",
 			"name": "ubooquity",
 			"platform": "linux",
 			"ports": [
@@ -5199,7 +5178,7 @@
 				}
 			],
 			"image": "linuxserver/unifi-controller:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/unifi-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/unifi-icon.png",
 			"name": "unifi-controller",
 			"platform": "linux",
 			"ports": [
@@ -5217,7 +5196,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Unifi",
+					"bind": "/portainer/Files/AppData/Config/Unifi",
 					"container": "/config"
 				}
 			]
@@ -5250,7 +5229,7 @@
 				}
 			],
 			"image": "pducharme/unifi-video-controller:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/unifivideo-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/unifivideo-icon.png",
 			"name": "UniFi Video",
 			"platform": "linux",
 			"ports": [
@@ -5269,11 +5248,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/UnifFiVideo/Recordings/",
+					"bind": "/portainer/Files/AppData/Config/UnifFiVideo/Recordings/",
 					"container": "/recordings"
 				},
 				{
-					"bind": "/container/UniFiVideo/",
+					"bind": "/portainer/Files/AppData/Config/UniFiVideo/",
 					"container": "/config"
 				}
 			]
@@ -5284,7 +5263,7 @@
 				"Tools"
 			],
 			"description": "Monitor your Unifi Controller using Grafana developed by oijkn for the Raspberry Pi Monitor.",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/unpoller-logo.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/unpoller-logo.png",
 			"name": "UnPoller Unifi Controller Monitor",
 			"platform": "linux",
 			"ports": [
@@ -5305,7 +5284,7 @@
 			],
 			"description": "It is a self-hosted monitoring tool like 'Uptime Robot'.",
 			"image": "louislam/uptime-kuma:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/uptime-kuma.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/uptime-kuma.png",
 			"name": "uptime-kuma",
 			"note": "A fancy self-hosted monitoring tool.",
 			"platform": "linux",
@@ -5317,7 +5296,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/uptime-kuma",
+					"bind": "/portainer/Files/AppData/Config/uptime-kuma",
 					"container": "/app/data"
 				}
 			]
@@ -5329,7 +5308,7 @@
 			],
 			"description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
 			"image": "vaultwarden/server:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/bitwarden.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/bitwarden.png",
 			"name": "vaultwarden",
 			"note": "Alternative Implementation of the Bitwarden Server API in Rust, including web vault.",
 			"platform": "linux",
@@ -5342,7 +5321,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Bitwarden",
+					"bind": "/portainer/Files/AppData/Config/Bitwarden",
 					"container": "/data"
 				}
 			]
@@ -5367,7 +5346,7 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 },
@@ -5392,7 +5371,7 @@
                     "default": ""
                 }
 			],
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/vikunja.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/vikunja.png",
 			"name": "vikunja",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -5400,7 +5379,7 @@
 			"type": 3,
 			"repository": {
 				"stackfile": "stack/vikunja.yml",
-				"url": "https://github.com/pi-hosted/pi-hosted/"
+				"url": "https://github.com/kimostberg/dockerpi/"
 			}
 		},
 		{
@@ -5411,7 +5390,7 @@
 			],
 			"description": "With watchtower you can update the running version of your containerized app simply by pushing a new image to the Docker Hub or your own image registry. Watchtower will pull down your new image, gracefully shut down your existing container and restart it with the same options that were used when it was deployed initially.",
 			"image": "containrrr/watchtower:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/watchtower.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/watchtower.png",
 			"name": "watchtower",
 			"note": "It is recommended to manually update your containers but we're including this for those of you that don't care",
 			"platform": "linux",
@@ -5443,7 +5422,7 @@
 				}
 			],
 			"image": "linuxserver/webgrabplus:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/webgrabplus.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/webgrabplus.png",
 			"name": "webgrabplus",
 			"platform": "linux",
 			"restart_policy": "unless-stopped",
@@ -5451,11 +5430,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/WebGrabPlus",
+					"bind": "/portainer/Files/AppData/Config/WebGrabPlus",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/WebGrabPlus",
+					"bind": "/portainer/Files/AppData/WebGrabPlus",
 					"container": "/data"
 				}
 			]
@@ -5467,7 +5446,7 @@
 			],
 			"description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
 			"image": "benbusby/whoogle-search:0.6.0",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/whoogle.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/whoogle.png",
 			"name": "whoogle",
 			"platform": "linux",
 			"ports": [
@@ -5478,7 +5457,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Whoogle",
+					"bind": "/portainer/Files/AppData/Config/Whoogle",
 					"container": "/config"
 				}
 			]
@@ -5490,7 +5469,7 @@
 			],
 			"description": "Wikijs A modern, lightweight and powerful wiki app built on NodeJS.",
 			"image": "linuxserver/wikijs:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wikijs.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/wikijs.png",
 			"name": "wikijs",
 			"platform": "linux",
 			"ports": [
@@ -5501,11 +5480,11 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Wikijs",
+					"bind": "/portainer/Files/AppData/Config/Wikijs",
 					"container": "/config"
 				},
 				{
-					"bind": "/container/Wikijs/data",
+					"bind": "/portainer/Files/AppData/Config/Wikijs/data",
 					"container": "/data"
 				}
 			]
@@ -5517,7 +5496,7 @@
 			],
 			"description": "A Docker image for Windows 2000 Advanced Server with SP4.",
 			"image": "hectormolinero/qemu-win2000:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/win2000.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/win2000.png",
 			"note":"Why? Your scientists were so preoccupied with whether or not they could, that they didn't stop to think if they should. -- Dr. Ian Malcolm",
 			"name": "win2000",
 			"platform": "linux",
@@ -5531,7 +5510,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/Win2000/zdrive",
+					"bind": "/portainer/Files/AppData/Config/Win2000/zdrive",
 					"container": "/mnt"
 				}
 			]
@@ -5543,7 +5522,7 @@
 			],
 			"description": "Fast VPN Server with easy to use User Interface",
 			"image": "weejewel/wg-easy:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wireguard.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/wireguard.png",
 			"name": "wg-easy",
 			"platform": "linux",
 			"title": "Wireguard Server",
@@ -5608,7 +5587,7 @@
 					"label":"Database root password"
 				}
 			],
-			"logo":"https://raw.githubusercontent.com/juustkim/dockerpi/master/images/wordpress.png",
+			"logo":"https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/wordpress.png",
 			"note":"Deploys a Wordpress instance connected to a MySQL database.",
 
 			"platform":"linux",
@@ -5654,7 +5633,7 @@
 			],
 			"description": "YoutubeDL-Material is a Material Design frontend for youtube-dl. It's coded using Angular 9 for the frontend, and Node.js on the backend.",
 			"image": "tzahi12345/youtubedl-material:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/ytdlm.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/ytdlm.png",
 			"name": "youtubedl-material",
 			"platform": "linux",
 			"ports": [
@@ -5665,23 +5644,23 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/YTDLM",
+					"bind": "/portainer/Files/AppData/Config/YTDLM",
 					"container": "/app/appdata"
 				},
 				{
-					"bind": "/container/Youtube/Video",
+					"bind": "/portainer/Files/AppData/Youtube/Video",
 					"container": "/app/video"
 				},
 				{
-					"bind": "/container/Youtube/Subscriptions",
+					"bind": "/portainer/Files/AppData/Youtube/Subscriptions",
 					"container": "/app/subscriptions"
 				},
 				{
-					"bind": "/container/Youtube/Users",
+					"bind": "/portainer/Files/AppData/Youtube/Users",
 					"container": "/app/users"
 				},
 				{
-					"bind": "/container/Youtube/Audio",
+					"bind": "/portainer/Files/AppData/Youtube/Audio",
 					"container": "/app/audio"
 				}
 			]
@@ -5704,7 +5683,7 @@
 				}
 			],
 			"image": "linuxserver/znc:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/znc-icon.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/znc-icon.png",
 			"name": "znc",
 			"platform": "linux",
 			"ports": [
@@ -5715,7 +5694,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/ZNC",
+					"bind": "/portainer/Files/AppData/Config/ZNC",
 					"container": "/config"
 				}
 			]
@@ -5737,13 +5716,13 @@
 					"name": "PGID"
 				},
                 {
-					"default": "America/New_York",
+					"default": "Europe/Istanbul",
                     "label": "TZ",
                     "name": "TZ"
                 }
 			],
 			"image": "linuxserver/rdesktop:latest",
-			"logo": "https://raw.githubusercontent.com/juustkim/dockerpi/master/images/rdesktop.png",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/rdesktop.png",
 			"name": "rdesktop",
 			"platform": "linux",
 			"ports": [
@@ -5754,7 +5733,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/container/RDesktop/config",
+					"bind": "/portainer/Files/AppData/Config/RDesktop/config",
 					"container": "/config"
 				}
 			]

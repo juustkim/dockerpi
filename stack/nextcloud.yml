@@ -1,31 +1,48 @@
----
-version: "2"
+version: '3'
+
+networks:
+  frontend:
+    # add this if the network is already existing!
+    external: true
+  backend:
+    external: true
+
 services:
-  nextcloud:
-    image: linuxserver/nextcloud:latest
-    container_name: nextcloud
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
-    volumes:
-      - /portainer/Files/AppData/Config/Nextcloud/Config:/config
-    ports:
-      - ${PORT}:443
+
+  nextcloud-app:
+    image: nextcloud
+    container_name: ${CONTNAME}
+    hostname: ${CONTNAME}
     restart: unless-stopped
-    depends_on:
-      - nextcloud_db
-  nextcloud_db:
-    image: linuxserver/mariadb:latest
-    container_name: nextcloud_db
+    volumes:
+      - /container/${CONTNAME}/Data:/var/www/html
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-      - TZ=${TZ}
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
-    volumes:
-      - /portainer/Files/AppData/Config/Nextcloud/DB:/config
+      - MYSQL_DATABASE=${CONTNAME}
+      - MYSQL_USER=${CONTNAME}
+      - MYSQL_HOST=172.21.0.51
+      - TZ=${TZ}
+    networks:
+      frontend: null
+      backend:
+        ipv4_address: 172.21.0.50
+    dns: 172.20.0.250
+
+  nextcloud-db:
+    container_name: "${CONTNAME}-db"
+    hostname: "${CONTNAME}-db"
+    image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /container/${CONTNAME}/DB:/var/lib/mysql
+      - /container/${CONTNAME}/DB/config:/config
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
+      - MYSQL_DATABASE=${CONTNAME}
+      - MYSQL_USER=${CONTNAME}
+      - TZ=${TZ}
+    networks:
+      backend:
+        ipv4_address: 172.21.0.51

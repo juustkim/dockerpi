@@ -1,0 +1,327 @@
+{
+	"version": "2",
+	"templates": [
+		{
+			"categories": [
+				"Print",
+				"Tools"
+			],
+			"description": "CUPS printing service.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cups.png",
+			"name": "cups",
+			"platform": "linux",
+			"title": "Cups",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/cups.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "cups",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "admin",
+					"label": "CUPS_ADMIN",
+					"name": "CUPS_ADMIN",
+					"description": "Admin username"
+				},
+				{
+					"default": "",
+					"label": "CUPS_PASSWORD",
+					"name": "CUPS_PASSWORD",
+					"description": "Admin password"
+				}
+			]
+		},
+		{
+			"categories": [
+				"DNS",
+				"Tools"
+			],
+			"description": "Cloudflare DDNS - A small and fast DDNS updater for Cloudflare.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/cloudflare-ddns.png",
+			"name": "cloudflare-ddns",
+			"platform": "linux",
+			"title": "Cloudflare DDNS",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/cloudflare-ddns.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "cloudflare-ddns",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "10.13.37.250",
+					"label": "DNS",
+					"name": "DNS",
+					"description": "Insert the Raspberry Pi IP here"
+				},
+				{
+					"default": "",
+					"label": "CF_API_TOKEN",
+					"name": "CF_API_TOKEN"
+				},
+				{
+					"default": "",
+					"label": "DOMAINS (Comma Separated List)",
+					"name": "DOMAINS"
+				},
+				{
+					"default": "true",
+					"label": "PROXIED",
+					"name": "PROXIED"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Cloud",
+				"Productivity",
+				"Tools",
+				"Other",
+				"Web"
+			],
+			"description": "Where are your photos and documents? With Nextcloud you pick a server of your choice, at home, in a data center or at a provider. And that is where your files will be. Nextcloud runs on that server, protecting your data and giving you access from your desktop or mobile devices.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/nextcloud-icon.png",
+			"name": "nextcloud",
+			"note": "The database user is nextcloud and the database is nextcloud_db. The host of the database will be located at the bottom of the DB conotainer in portainer.",
+			"platform": "linux",
+			"repository": {
+				"stackfile": "stack/nextcloud.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"title": "Nextcloud",
+			"type": 3,
+			"env": [
+				{
+					"default": "nextcloud",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "Europe/Istanbul",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"label": "DATABASE_PASSWORD",
+					"name": "DATABASE_PASSWORD"
+				},
+				{
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Proxy",
+				"Tools"
+			],
+			"description": "Nginx Proxy Manager enables you to easily forward to your websites running at home or otherwise, including free SSL, without having to know too much about Nginx or Letsencrypt.  Please see the install document at https://github.com/kimostberg/dockerpi/tree/master/docs installing the template",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/proxy_mgr.png",
+			"name": "nginx-proxy-manager",
+			"note": "When the installation is complete, navigate to your.ip.goes.here:8081. First time login Email: admin@example.com First time login Password: changeme",
+			"platform": "linux",
+			"title": "Nginx Proxy Manager",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/nginx-proxy-manager.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "npm",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+                {
+					"default": "Europe/Istanbul",
+                    "label": "TZ",
+                    "name": "TZ"
+                },
+				{
+					"default": "dbpassword",
+					"label": "DATABASE_PASSWORD",
+					"name": "DATABASE_PASSWORD"
+				},
+				{
+					"default": "super secure password",
+					"label": "MYSQL_ROOT_PASSWORD",
+					"name": "MYSQL_ROOT_PASSWORD"
+				}
+				
+			]
+
+		},		
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "A Linux network-level advertisement and Internet tracker blocking application which acts as a DNS sinkhole. This version has Ubound software installed on it so you don't need to rely on external DNS providers.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/pihole-unbound.png",
+			"name": "pihole-unbound",
+			"note": "When the installation is complete, navigate to your.ip.goes.here:1010/admin. Follow the article \u003ca href='https://medium.com/@niktrix/getting-rid-of-systemd-resolved-consuming-port-53-605f0234f32f'\u003ehere\u003c/a\u003e if you run into issues binding to port 53. For extra information on this container visit the mainteiner \u003ca href='https://github.com/chriscrowe/docker-pihole-unbound/tree/master/one-container'\u003eGitHub Page\u003c/a\u003e. You can add ports: 5335 to access Ubound externally; 22 to enable SSH; 67 to use DHCP Server. Add those ports in Show advanced options.",
+			"platform": "linux",
+			"title": "Pi-Hole-Unbound",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/pihole-unbound.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "10.13.37.250",
+					"label": "ServerIP",
+					"name": "ServerIP",
+					"description": "Insert the Raspberry Pi IP here"
+				},
+				{
+					"default": "pihole",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "172.20.0.250",
+					"label": "PiHoleIP",
+					"name": "PiHoleIP",
+					"description": "Pihole internal frontend-network IP"
+				},
+				{
+					"default": "piholepassword",
+					"label": "WEBPASSWORD",
+					"name": "WEBPASSWORD",
+					"description": "Write super secure password here"
+				},
+				{
+					"default": "Europe/Istanbul",
+					"label": "TZ",
+					"name": "TZ"
+				},
+				{
+					"label": "DNSSEC",
+					"name": "DNSSEC",
+					"select": [
+						{
+							"text": "Enable DNSSEC",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable DNSSEC",
+							"value": "false"
+						}
+					]
+				}
+			],
+			"volumes": [
+				{
+					"bind": "/container/PiHole-Unbound",
+					"container": "/etc/pihole"
+				},
+				{
+					"bind": "/container/PiHole-Unbound/DNS",
+					"container": "/etc/dnsmasq.d"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "It is a self-hosted monitoring tool like 'Uptime Robot'.",
+			"image": "louislam/uptime-kuma:latest",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/uptime-kuma.png",
+			"name": "uptime-kuma",
+			"note": "A fancy self-hosted monitoring tool. To access Uptime Kuma, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: uptime) and 'Forward Port' 3001",
+			"platform": "linux",
+			"title": "Uptime Kuma",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/uptime-kuma.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "uptime",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				},
+				{
+					"default": "Europe/Istanbul",
+					"label": "TZ",
+					"name": "TZ"
+				}
+			]
+		},
+		{
+			"categories": [
+				"Other",
+				"VPN"
+			],
+			"description": "Fast VPN Server with easy to use User Interface",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/wireguard.png",
+			"name": "wireguard",
+			"note": "To control Wireguard users, add proxy in npm with 'Forward Hostname / IP' Hostname that you set down below (default: wireguard) and 'Forward Port' 51821",
+			"platform": "linux",
+			"title": "Wireguard Server",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/wireguard-easy.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "wireguard",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				},
+				{
+					"default": "example.domain.com",
+					"name": "WG_HOST",
+					"label": "WG_HOST",
+					"description": "Set here your DDNS domain"
+				},
+				{
+					"default": "ENTER AN ADMIN PASSWORD",
+					"name": "PASSWORD",
+					"label": "PASSWORD",
+					"description": "Leave blank to access WebUI without loggin"
+				},
+				{
+					"default": "51820",
+					"name": "WG_PORT",
+					"label": "WG_PORT"
+				},
+				{
+					"default": "172.20.0.250",
+					"name": "WG_DEFAULT_DNS",
+					"label": "WG_DEFAULT_DNS",
+					"description": "Default is to use Pihole internal IP as DNS"
+				},
+				{
+					"default": "0.0.0.0/0, ::/0",
+					"name": "WG_ALLOWED_IPS",
+					"label": "WG_ALLOWED_IPS"
+				}
+			]
+		}
+
+    ]
+}
