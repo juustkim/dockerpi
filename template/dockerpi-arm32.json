@@ -321,6 +321,30 @@
 					"label": "WG_ALLOWED_IPS"
 				}
 			]
+		},
+		{
+			"categories": [
+				"Other",
+				"VPN"
+			],
+			"description": "Connect team members from anywhere in the world on any device. ZeroTier creates secure networks between on-premise, cloud, desktop, and mobile devices.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/zerotier.png",
+			"name": "zerotier",
+			"platform": "linux",
+			"title": "Zerotier",
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/zerotier.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
+				{
+					"default": "zerotier",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				}
+			]
 		}
 
     ]
