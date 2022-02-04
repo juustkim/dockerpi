@@ -9,10 +9,8 @@ services:
     network_mode: host
     volumes:
       - '/var/lib/zerotier-one:/var/lib/zerotier-one'
-      - '/var/lib/zerotier-one/networks.d:/var/lib/zerotier-one/networks.d'
+      - '/var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf:/var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf'
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
     dns: 172.20.0.250
-    command: >
-      /bin/sh -c “echo '' > /var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf"
