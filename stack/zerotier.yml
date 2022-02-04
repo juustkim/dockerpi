@@ -9,6 +9,7 @@ services:
     network_mode: host
     volumes:
       - '/var/lib/zerotier-one:/var/lib/zerotier-one'
+      - '/var/lib/zerotier-one/networks.d/:/var/lib/zerotier-one/networks.d/'
     cap_add:
       - NET_ADMIN
       - SYS_ADMIN
