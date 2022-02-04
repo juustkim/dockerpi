@@ -26,7 +26,7 @@ services:    # First time login Email:    admin@example.com
       DB_MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this. Has to same as npm-db MYSQL_PASSWORD
       DB_MYSQL_NAME: ${CONTNAME}
       DISABLE_IPV6: 'true'  # Uncomment this if IPv6 is not enabled on your host
-      - TZ=${TZ}
+      TZ: ${TZ}
     volumes:
       - /container/${CONTNAME}/data:/data
       - /container/${CONTNAME}/letsencrypt:/etc/letsencrypt
@@ -46,7 +46,7 @@ services:    # First time login Email:    admin@example.com
       MYSQL_DATABASE: ${CONTNAME}
       MYSQL_USER: ${CONTNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
-      - TZ=${TZ}
+      TZ: ${TZ}
     volumes:
       - /container/${CONTNAME}/data/mysql:/var/lib/mysql
     networks:
