@@ -330,6 +330,7 @@
 			"description": "Connect team members from anywhere in the world on any device. ZeroTier creates secure networks between on-premise, cloud, desktop, and mobile devices.",
 			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/zerotier.png",
 			"name": "zerotier",
+			"note": "After container is created, run custom console command 'zerotier-cli join YOUR_NETWORK_ID'",
 			"platform": "linux",
 			"title": "Zerotier",
 			"type": 3,
@@ -343,11 +344,6 @@
 					"name": "CONTNAME",
 					"label": "HOSTNAME",
 					"description": "Set here your hostname"
-				},
-				{
-					"name": "NETWORK_ID",
-					"label": "NETWORK_ID",
-					"description": "Your ZeroTier Network ID"
 				}
 			]
 		}
