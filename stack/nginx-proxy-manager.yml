@@ -25,8 +25,7 @@ services:    # First time login Email:    admin@example.com
       DB_MYSQL_USER: ${CONTNAME}
       DB_MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this. Has to same as npm-db MYSQL_PASSWORD
       DB_MYSQL_NAME: ${CONTNAME}
-      # Uncomment this if IPv6 is not enabled on your host
-      # DISABLE_IPV6: 'true'
+      DISABLE_IPV6: 'true'  # Uncomment this if IPv6 is not enabled on your host
       - TZ=${TZ}
     volumes:
       - /container/${CONTNAME}/data:/data
