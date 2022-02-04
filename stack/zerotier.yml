@@ -13,4 +13,4 @@ services:
       - NET_ADMIN
       - SYS_ADMIN
     dns: 172.20.0.250
-command: /bin/bash -c “echo '' > /var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf"
+#command: /bin/bash -c “echo '' > /var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf"
