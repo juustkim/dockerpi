@@ -1,4 +1,4 @@
-# dockerpi Portainer Template V2
+# DockerPi Portainer Template
 
 [![Discord](https://img.shields.io/discord/316245914987528193?logo=discord)](https://discord.com/invite/v8dAnFV) [![Youtube](https://img.shields.io/badge/YouTube-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/channel/UCrjKdwxaQMSV_NDywgKXVmw) [![Twitter URL](https://img.shields.io/twitter/follow/novaspirittech?style=flat-square&logo=twitter)](https://twitter.com/novaspirittech) [![hacktoberfest](https://img.shields.io/badge/hacktoberfest-friendly-orange)](https://hacktoberfest.digitalocean.com)
 
@@ -57,7 +57,7 @@ You're done! Now just click App Templates and deploy applications!
 #### Versions
 | Application  | Supported OS's | URL |
 | ------------- | ------------- | ------------- |
-| DockerPi Arm32 (my verion) | Pi OS |``` https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/dockerpi-arm32.json ```|
+| DockerPi Arm32 (my verion) | Pi OS | https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/dockerpi-arm32.json |
 | Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm32.json |
 | Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm64.json |
 
