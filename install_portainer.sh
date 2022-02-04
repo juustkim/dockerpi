@@ -25,7 +25,7 @@ sudo docker network create \
 
 sudo docker network create \
   --driver=bridge \
-  --subnet=172.20.0.0/16
+  --subnet=172.21.0.0/16 \
   backend
 
 sudo docker pull portainer/portainer-ce:latest || error "Failed to pull latest Portainer docker image!"
