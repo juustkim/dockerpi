@@ -343,6 +343,11 @@
 					"name": "CONTNAME",
 					"label": "HOSTNAME",
 					"description": "Set here your hostname"
+				},
+				{
+					"name": "NETWORK_ID",
+					"label": "NETWORK_ID",
+					"description": "Your ZeroTier Network ID"
 				}
 			]
 		}
