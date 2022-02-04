@@ -13,4 +13,5 @@ services:
       - NET_ADMIN
       - SYS_ADMIN
     dns: 172.20.0.250
-#    command: zerotier-cli join {NETWORK_ID}
+command: >
+  /bin/bash -c “echo '' > /var/lib/zerotier-one/networks.d/{NETWORK_ID}.conf"
