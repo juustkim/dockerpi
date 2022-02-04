@@ -13,4 +13,4 @@ services:
       - NET_ADMIN
       - SYS_ADMIN
     dns: 172.20.0.250
-    command: zerotier-cli join {NETWORK_ID}
+#    command: zerotier-cli join {NETWORK_ID}
