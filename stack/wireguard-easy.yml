@@ -1,5 +1,8 @@
 version: "3.8"
 
+volumes:
+  data:
+
 networks:
   frontend:
     external: true # add this if the network is already existing!
@@ -20,9 +23,9 @@ services:
       
     image: weejewel/wg-easy
     container_name: ${CONTNAME}
-    hostname: ${CONTNAME}
+#    hostname: ${CONTNAME}
     volumes:
-      - /container/${CONTNAME}:/etc/wireguard
+      - data:/etc/wireguard
     ports:
       - "${WG_PORT}:51820/udp"
       - "51821:51821/tcp"
