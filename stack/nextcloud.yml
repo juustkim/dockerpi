@@ -37,6 +37,8 @@ services:
     restart: unless-stopped
     links:
       - ${CONTNAME}-db
+#   ports: 
+#     - 80:80
     volumes:
       - app:/var/www/html
     environment:
