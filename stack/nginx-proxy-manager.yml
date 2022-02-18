@@ -1,5 +1,10 @@
 version: "3"
 
+volumes:
+  app:
+  letsencrypt:
+  db:
+
 networks:
   frontend:
     external: true  # add this if the network is already existing!
@@ -9,7 +14,6 @@ networks:
 services:    # First time login Email:    admin@example.com
   npm-app:   # First time login Password: changeme
     container_name: ${CONTNAME}
-    hostname: ${CONTNAME}
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
     ports:
@@ -28,8 +32,8 @@ services:    # First time login Email:    admin@example.com
       DISABLE_IPV6: 'true'  # Uncomment this if IPv6 is not enabled on your host
       TZ: ${TZ}
     volumes:
-      - /container/${CONTNAME}/data:/data
-      - /container/${CONTNAME}/letsencrypt:/etc/letsencrypt
+      - data:/data
+      - letsencrypt:/etc/letsencrypt
     networks:
       - frontend
       - backend
@@ -38,7 +42,6 @@ services:    # First time login Email:    admin@example.com
 
   npm-db:
     container_name: "${CONTNAME}-db"
-    hostname: "${CONTNAME}-db"
     image: 'jc21/mariadb-aria:latest'
     restart: unless-stopped
     environment:
@@ -48,6 +51,6 @@ services:    # First time login Email:    admin@example.com
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
       TZ: ${TZ}
     volumes:
-      - /container/${CONTNAME}/data/mysql:/var/lib/mysql
+      - db:/var/lib/mysql
     networks:
       - backend
