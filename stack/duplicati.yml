@@ -18,9 +18,8 @@ services:
       - CLI_ARGS= ${CLI_ARGS}
     volumes:
       - config:/config
-      - /backups:/backups
       - /var/lib/docker/volumes:/source/docker/volumes
-      - /backups/db:/sources/db
+      - /backups/db:/source/db
     ports:
       - 8200:8200
     restart: unless-stopped    
