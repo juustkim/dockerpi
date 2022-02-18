@@ -308,11 +308,6 @@
 					"name": "CONTNAME",
 					"label": "HOSTNAME",
 					"description": "Set here your hostname"
-				},
-				{
-					"default": "Europe/Istanbul",
-					"label": "TZ",
-					"name": "TZ"
 				}
 			]
 		},
