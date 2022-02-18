@@ -1,5 +1,9 @@
 version: '3'
 
+volumes:
+  data:
+  dnsmasq:
+
 networks:
   frontend:
     external: true # add this if the network is already existing!
@@ -10,7 +14,7 @@ services:
   pihole:
     container_name: ${CONTNAME}
     image: cbcrowe/pihole-unbound:latest
-    hostname: ${CONTNAME}
+#    hostname: ${CONTNAME}
 #    domainname: ${DOMAIN_NAME}
     ports:
     #  - 8443:443/tcp
@@ -28,8 +32,8 @@ services:
 #      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
 #      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     volumes:
-      - /container/${CONTNAME}/data:/etc/pihole:rw
-      - /container/${CONTNAME}/dnsmasq:/etc/dnsmasq.d:rw
+      - data:/etc/pihole:rw
+      - dnsmasq:/etc/dnsmasq.d:rw
     restart: unless-stopped
     networks:
       frontend:
