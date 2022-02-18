@@ -1,9 +1,13 @@
 version: '3.8'
+
+networks:
+  frontend:
+    external: true # add this if the network is already existing!
+
 services:
   zerotier:
     image: zyclonite/zerotier:bridge
     container_name: ${CONTNAME}
-    hostname: ${CONTNAME}
     devices:
       - /dev/net/tun
     volumes:
@@ -12,4 +16,6 @@ services:
       - NET_ADMIN
       - NET_RAW
       - SYS_ADMIN
+    networks:
+      - frontend
     dns: 172.20.0.250
