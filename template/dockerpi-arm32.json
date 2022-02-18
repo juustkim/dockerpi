@@ -90,6 +90,16 @@
 				"Productivity",
 				"Tools"
 			],
+			"title": "Duplicati",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/duplicati-icon.png",
+			"name": "duplicati",
+			"repository": {
+				"stackfile": "stack/duplicati.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"platform": "linux",
+			"restart_policy": "unless-stopped",
+			"type": 3,
 			"description": "Free backup software to store encrypted backups online, Duplicati works with standard protocols like FTP, SSH, WebDAV as well as popular services like Microsoft OneDrive, Amazon Cloud Drive and S3, Google Drive, box.com, Mega, hubiC and many others.",
 			"env": [
 				{
@@ -117,13 +127,7 @@
 					"label": "CLI_ARGS",
 					"name": "CLI_ARGS"
 				}
-			],
-			"title": "Duplicati",
-			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/duplicati-icon.png",
-			"name": "duplicati",
-			"platform": "linux",
-			"restart_policy": "unless-stopped",
-			"type": 3
+			]
 		},
 		{
 			"categories": [
