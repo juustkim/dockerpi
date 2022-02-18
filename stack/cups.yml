@@ -30,3 +30,4 @@ services:
       - CUPSPASSWORD=${CUPS_PASSWORD}
     networks:
       - frontend
+    dns: 172.20.0.250
