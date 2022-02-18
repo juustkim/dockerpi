@@ -14,8 +14,8 @@ services:
     image: kimostberg/cups:latest
     container_name: ${CONTNAME}
     network_mode: host
-#    ports:
-#      - "631:631"
+    ports:
+      - "631:631"
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
