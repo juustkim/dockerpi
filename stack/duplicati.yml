@@ -1,5 +1,9 @@
 version: "2.1"
 
+networks:
+  frontend: 
+    external: true # add this if the network is already existing!
+
 volumes:
   config:
 
@@ -19,4 +23,7 @@ services:
       - /backups/db:/sources/db
     ports:
       - 8200:8200
-    restart: unless-stopped
+    restart: unless-stopped    
+    networks:
+      - frontend
+    dns: 172.20.0.250
