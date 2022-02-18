@@ -11,7 +11,7 @@ services:
   uptime-kuma:
     image: louislam/uptime-kuma
     container_name: ${CONTNAME}
-    hostname: ${CONTNAME}
+#    hostname: ${CONTNAME}
     volumes:
       - data:/app/data
     #ports:
