@@ -1,11 +1,10 @@
 version: '3'
 
 networks:
-  frontend:
-    # add this if the network is already existing!
-    external: true
+  frontend: 
+    external: true # add this if the network is already existing!
   backend:
-    external: true
+    external: true # add this if the network is already existing!
 
 services:
 
@@ -20,12 +19,11 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
       - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST=172.21.0.51
+      - MYSQL_HOST=${CONTNAME}-db
       - TZ=${TZ}
     networks:
-      frontend: null
-      backend:
-        ipv4_address: 172.21.0.50
+      - frontend
+      - backend
     dns: 172.20.0.250
 
   nextcloud-db:
@@ -44,5 +42,4 @@ services:
       - MYSQL_USER=${CONTNAME}
       - TZ=${TZ}
     networks:
-      backend:
-        ipv4_address: 172.21.0.51
+      - backend
