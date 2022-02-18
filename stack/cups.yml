@@ -1,5 +1,10 @@
 version: '3'
 
+volumes:
+  config:
+  services:
+  etc:
+
 #networks:
 #  frontend:
 #    external: true # add this if the network is already existing!
@@ -8,16 +13,15 @@ services:
   cups:
     image: kimostberg/cups:latest
     container_name: ${CONTNAME}
-    hostname: ${CONTNAME}
     network_mode: host
 #    ports:
 #      - "631:631"
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
-      - /container/${CONTNAME}/etc/cups:/etc/cups
-      - /container/${CONTNAME}/config:/config
-      - /container/${CONTNAME}/services:/services
+      - etc:/etc/cups
+      - config:/config
+      - services:/services
     devices:
       - /dev/bus:/dev/bus
       - /dev/usb:/dev/usb
