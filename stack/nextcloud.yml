@@ -13,7 +13,7 @@ services:
     hostname: "${CONTNAME}-db"
     image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
-    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW --innodb-file-per-table=1 --skip-innodb-read-only-compressed
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
       - /container/${CONTNAME}/DB:/var/lib/mysql
       - /container/${CONTNAME}/DB/config:/config
