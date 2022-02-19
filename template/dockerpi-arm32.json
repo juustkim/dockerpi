@@ -387,6 +387,31 @@
 		{
 			"categories": [
 				"Other",
+				"Tools"
+			],
+			"description": "Self-hosted, ad-free, privacy-respecting Google metasearch engine.",
+			"image": "benbusby/whoogle-search:latest",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/whoogle.png",
+			"name": "whoogle",
+			"platform": "linux",
+			"ports": [
+				"5001:5000/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "Whoogle",
+			"type": 1,
+			"volumes": [
+				{
+					"volume": "config",
+					"container": "/config"
+				}
+			],
+			"network": "frontend",
+			"dns": "172.20.0.250"
+		},
+		{
+			"categories": [
+				"Other",
 				"VPN"
 			],
 			"description": "Fast VPN Server with easy to use User Interface",
