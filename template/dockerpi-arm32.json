@@ -331,7 +331,9 @@
 					"bind": "/var/run/docker.sock",
 					"container": "/var/run/docker.sock"
 				}
-			]
+			],
+			"network": "frontend",
+			"dns": "172.20.0.250"
 		},
 		{
 			"categories": [
