@@ -10,9 +10,25 @@ networks:
     external: true # add this if the network is already existing!
   backend:
     external: true # add this if the network is already existing!
+    
+services:    
+  db:
+    image: yobasystems/alpine-mariadb:latest
+    container_name: ${CONTNAME}-db
+    hostname: ${CONTNAME}-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${CONTNAME}
+      MYSQL_USER: ${CONTNAME}
+      MYSQL_PASSWORD: ${DATABASE_PASSWORD}
+    volumes:
+      - db:/var/lib/mysql #Database Volume Goes Here
+      - /etc/timezone:/etc/timezone:ro #This is for TimeZone
+    restart: unless-stopped
+    networks:
+      - backend
 
-services:
-  projectsend:
+  app:
     image: linuxserver/projectsend
     container_name: ${CONTNAME}
     environment:
@@ -20,14 +36,13 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - MAX_UPLOAD=${MAX_UPLOAD}
-      - MYSQL_PASSWORD=${DATABASE_PASSWORD}
-      - MYSQL_DATABASE=${CONTNAME}
-      - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST=${CONTNAME}-db
+
     volumes:
       - config:/config #Config Volume Goes Here
       - data:/data #File Storage Volume Goes Here
       - /etc/timezone:/etc/timezone:ro #This is for TimeZone
+    links:
+      - ${CONTNAME}-db
     ports:
       - 8010:80
     restart: unless-stopped
@@ -35,18 +50,3 @@ services:
       - frontend
       - backend
     dns: 172.20.0.250
-
-  db:
-    image: yobasystems/alpine-mariadb:latest
-    container_name: ${CONTNAME}-db
-    environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
-      MYSQL_DATABASE: ${DATABASE_PASSWORD}
-      MYSQL_USER: ${CONTNAME}
-      MYSQL_PASSWORD: ${CONTNAME}
-    volumes:
-      - db:/var/lib/mysql #Database Volume Goes Here
-      - /etc/timezone:/etc/timezone:ro #This is for TimeZone
-    restart: unless-stopped
-    networks:
-      - backend
