@@ -131,6 +131,43 @@
 		},
 		{
 			"categories": [
+				"Other",
+				"Tools"
+			],
+			"description": "A Free and Open Source Speedtest for HTML5 and more.",
+			"env": [
+                {
+                    "default": "1000",
+                    "label": "PUID",
+                    "name": "PUID"
+        	    },
+                {
+                    "default": "1000",
+                    "label": "PGID",
+                    "name": "PGID"
+                }
+            ],
+			"image": "linuxserver/librespeed:latest",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/speedtest.png",
+			"name": "librespeed",
+			"platform": "linux",
+			"ports": [
+				"83:80/tcp"
+			],
+			"restart_policy": "unless-stopped",
+			"title": "LibreSpeed",
+			"type": 1,
+			"volumes": [
+				{
+					"volume": "config",
+					"container": "/config"
+				}
+			],
+			"network": "frontend",
+			"dns": "172.20.0.250"
+		},
+		{
+			"categories": [
 				"Cloud",
 				"Productivity",
 				"Tools",
