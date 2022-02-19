@@ -11,7 +11,7 @@ networks:
     
 services:
   cups:
-    image: kimostberg/cups-airprint:latest
+    image: kimostberg/cups:latest
     container_name: ${CONTNAME}
 #    network_mode: host
     ports:
