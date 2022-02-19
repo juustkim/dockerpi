@@ -296,6 +296,7 @@
 			"description": "ProjectSend is a self-hosted application that lets you upload files and assign them to specific clients that you create yourself! Secure, private and easy. No more depending on external services or e-mail to send those files!\n  ",
 			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/projectsend-logo.png",
 			"name": "projectsend",
+			"type": 3,
 			"repository": {
 				"stackfile": "stack/projectsend.yml",
 				"url": "https://github.com/kimostberg/dockerpi"
