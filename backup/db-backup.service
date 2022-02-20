@@ -1,0 +1,11 @@
+[Unit]
+Description=DB Container Backup Script
+Wants=db-backup.timer
+
+[Service]
+Type=simple
+ExecStart=sh /docker/backup/scripts/db-backup.sh
+User=pi
+
+[Install]
+WantedBy=default.target
