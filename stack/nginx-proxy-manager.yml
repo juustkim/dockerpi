@@ -1,10 +1,5 @@
 version: "3"
 
-volumes:
-  data:
-  letsencrypt:
-  db:
-
 networks:
   frontend:
     external: true  # add this if the network is already existing!
@@ -32,8 +27,8 @@ services:    # First time login Email:    admin@example.com
       DISABLE_IPV6: 'true'  # Uncomment this if IPv6 is not enabled on your host
       TZ: ${TZ}
     volumes:
-      - data:/data
-      - letsencrypt:/etc/letsencrypt
+      - /docker/container/${CONTNAME}/data:/data
+      - /docker/container/${CONTNAME}/letsencrypt:/etc/letsencrypt
     networks:
       - frontend
       - backend
@@ -51,6 +46,6 @@ services:    # First time login Email:    admin@example.com
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
       TZ: ${TZ}
     volumes:
-      - db:/var/lib/mysql
+      - /docker/db/${CONTNAME}:/var/lib/mysql
     networks:
       - backend

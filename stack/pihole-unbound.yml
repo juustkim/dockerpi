@@ -1,9 +1,5 @@
 version: '3'
 
-volumes:
-  data:
-  dnsmasq:
-
 networks:
   frontend:
     external: true # add this if the network is already existing!
@@ -32,8 +28,8 @@ services:
 #      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
 #      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
     volumes:
-      - data:/etc/pihole:rw
-      - dnsmasq:/etc/dnsmasq.d:rw
+      - /docker/container/${CONTNAME}/data:/etc/pihole:rw
+      - /docker/container/${CONTNAME}/dnsmasq:/etc/dnsmasq.d:rw
     restart: unless-stopped
     networks:
       frontend:

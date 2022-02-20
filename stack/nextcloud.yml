@@ -1,10 +1,5 @@
 version: '3'
 
-volumes:
-  app:
-  db:
-  db-config:
-
 networks:
   frontend: 
     external: true # add this if the network is already existing!
@@ -19,8 +14,7 @@ services:
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
-      - db:/var/lib/mysql
-      - db-config:/config
+      - /docker/db/${CONTNAME}:/var/lib/mysql
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
@@ -40,7 +34,7 @@ services:
 #   ports: 
 #     - 80:80
     volumes:
-      - app:/var/www/html
+      - /docker/container/${CONTNAME}:/var/www/html
     environment:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}

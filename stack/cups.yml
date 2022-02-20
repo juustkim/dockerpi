@@ -1,10 +1,5 @@
 version: '3'
 
-volumes:
-  config:
-  services:
-  etc:
-
 networks:
   frontend:
     external: true # add this if the network is already existing!
@@ -19,9 +14,9 @@ services:
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
-      - etc:/etc/cups
-      - config:/config
-      - services:/services
+      - /docker/container/${CONTNAME}/etc:/etc/cups
+      - /docker/container/${CONTNAME}/config:/config
+      - /docker/container/${CONTNAME}/services:/services
     devices:
       - /dev/bus:/dev/bus
 #      - /dev/usb:/dev/usb

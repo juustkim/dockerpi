@@ -1,10 +1,5 @@
 version: "2.1"
 
-volumes:
-  config:
-  data:
-  db:
-
 networks:
   frontend: 
     external: true # add this if the network is already existing!
@@ -22,8 +17,7 @@ services:
       MYSQL_USER: ${CONTNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD}
     volumes:
-      - db:/var/lib/mysql #Database Volume Goes Here
-      - /etc/timezone:/etc/timezone:ro #This is for TimeZone
+      - /docker/db/${CONTNAME}:/var/lib/mysql #Database Volume Goes Here
     restart: unless-stopped
     networks:
       - backend
@@ -38,13 +32,12 @@ services:
       - MAX_UPLOAD=${MAX_UPLOAD}
 
     volumes:
-      - config:/config #Config Volume Goes Here
-      - data:/data #File Storage Volume Goes Here
-      - /etc/timezone:/etc/timezone:ro #This is for TimeZone
+      - /docker/container/${CONTNAME}/config:/config #Config Volume Goes Here
+      - /docker/container/${CONTNAME}/data:/data #File Storage Volume Goes Here
     links:
       - ${CONTNAME}-db
-    ports:
-      - 8010:80
+#    ports:
+#      - 8010:80
     restart: unless-stopped
     networks:
       - frontend

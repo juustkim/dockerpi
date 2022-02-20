@@ -1,8 +1,5 @@
 version: '3.3'
 
-volumes:
-  data:
-
 networks:
   frontend:
     external: true # add this if the network is already existing!
@@ -13,9 +10,9 @@ services:
     container_name: ${CONTNAME}
 #    hostname: ${CONTNAME}
     volumes:
-      - data:/app/data
-    ports:
-      - 3001:3001
+      - /docker/container/${CONTNAME}:/app/data
+#    ports:
+#      - 3001:3001
 #    enviroments:
 #    - TZ=${TZ}
     networks:

@@ -4,9 +4,6 @@ networks:
   frontend: 
     external: true # add this if the network is already existing!
 
-volumes:
-  config:
-
 services:
   duplicati:
     image: ghcr.io/linuxserver/duplicati
@@ -17,9 +14,9 @@ services:
       - TZ=${TZ}
       - CLI_ARGS= ${CLI_ARGS}
     volumes:
-      - config:/config
-      - /var/lib/docker/volumes:/source/docker/volumes
-      - /backups/db:/source/db
+      - /docker/container/${CONTNAME}/config:/config
+      - /docker:/source
+      - /backups:/backups
     ports:
       - 8200:8200
     restart: unless-stopped    
