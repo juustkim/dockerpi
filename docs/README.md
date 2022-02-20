@@ -60,14 +60,9 @@ Click Settings, in the bottom-left corner, and paste the Portainer v2 json file 
 
 You're done! Now just click App Templates and deploy applications!
 
-#### Versions
-| Application  | Supported OS's | URL |
-| ------------- | ------------- | ------------- |
-| DockerPi Arm32 (my verion) | Pi OS | https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/dockerpi-arm32.json |
-| Portainer v2 Arm32 | Pi OS | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm32.json |
-| Portainer v2 Arm64 | Ubuntu 64, DietPI 64 | https://raw.githubusercontent.com/pi-hosted/pi-hosted/master/template/portainer-v2-arm64.json |
-
-* Limited testing Operating Systems: Pi OS 64 Beta, DietPI 32 bit
+```
+https://raw.githubusercontent.com/kimostberg/dockerpi/master/template/dockerpi-arm32.json 
+```
 
 ### Novaspirit Pi-hosted YouTube series
 
