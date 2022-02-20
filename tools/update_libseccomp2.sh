@@ -22,3 +22,4 @@ wget http://ftp.us.debian.org/debian/pool/main/libs/libseccomp/libseccomp2_2.5.3
 sudo dpkg -i libseccomp2_2.5.3-2_armhf.deb || error "Failed to install libseccomp2.deb"
 rm -f libseccomp2_2.5.3-2_armhf.deb
 echo "Updating the libseccomp2 file is complete."
+sudo reboot now
