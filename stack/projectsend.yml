@@ -30,7 +30,6 @@ services:
       - PGID=${PGID}
       - TZ=${TZ}
       - MAX_UPLOAD=${MAX_UPLOAD}
-
     volumes:
       - /docker/container/${CONTNAME}/config:/config #Config Volume Goes Here
       - /docker/container/${CONTNAME}/data:/data #File Storage Volume Goes Here
