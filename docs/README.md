@@ -50,6 +50,12 @@ To update portainer, run this command (Portainer will use Pi-Hole as DNS after t
 
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/update_portainer.sh | bash
 ```
+
+To backup your databases daily, you can run this
+```
+wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/backup/install.sh | bash
+```
+
 Click Settings, in the bottom-left corner, and paste the Portainer v2 json file link from below into the "App Templates" box.
 
 You're done! Now just click App Templates and deploy applications!
