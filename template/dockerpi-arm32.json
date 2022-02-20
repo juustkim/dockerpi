@@ -159,7 +159,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"volume": "config",
+					"bind": "/docker/container/librespeed",
 					"container": "/config"
 				}
 			],
@@ -310,16 +310,6 @@
 						}
 					]
 				}
-			],
-			"volumes": [
-				{
-					"bind": "/container/PiHole-Unbound",
-					"container": "/etc/pihole"
-				},
-				{
-					"bind": "/container/PiHole-Unbound/DNS",
-					"container": "/etc/dnsmasq.d"
-				}
 			]
 		},
 		{
@@ -417,7 +407,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"volume": "data",
+					"bind": "/docker/container/vaultwarden",
 					"container": "/data"
 				}
 			],
@@ -466,7 +456,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"volume": "config",
+					"bind": "/docker/container/whoogle",
 					"container": "/config"
 				}
 			],
