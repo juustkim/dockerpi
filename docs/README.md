@@ -17,7 +17,6 @@ See the list of Apps included in this template [here](AppList.md).
 Run `install-docker.sh`, to install docker, and add the current user to the docker usergroup.
 ```
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_docker.sh | bash
-
 ```
 Script will reboot your system at the end
 
