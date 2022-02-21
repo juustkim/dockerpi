@@ -17,8 +17,9 @@ See the list of Apps included in this template [here](AppList.md).
 Run `install-docker.sh`, to install docker, and add the current user to the docker usergroup.
 ```
 wget -qO- https://raw.githubusercontent.com/kimostberg/dockerpi/master/install_docker.sh | bash
-# Script will reboot your system at the end
+
 ```
+Script will reboot your system at the end
 
 ### Pi OS Buster  
 On Oct 30, 2021 Pi OS bullseye was released and this is no longer needed.  Older Pi OS buster releases run an old version of libseccomp that is causing problems with many containers that are preventing them from running.  To fix this we need to manually install a newer version of libseccomp.  However we first need to check and see if you are running an older version.  To check please run sudo dpkg-query -W libseccomp.
