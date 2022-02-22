@@ -10,11 +10,22 @@ services:
     container_name: ${CONTNAME}
 #    hostname: ${CONTNAME}
     volumes:
-      - /docker/container/${CONTNAME}:/app/data
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/data:/app/data
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=3001"
+      - "traefik.docker.network=proxy"
 #    ports:
 #      - 3001:3001
-#    enviroments:
-#    - TZ=${TZ}
     networks:
       - frontend
     dns: 
