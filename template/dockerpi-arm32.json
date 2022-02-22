@@ -34,6 +34,27 @@
 					"label": "CUPS_PASSWORD",
 					"name": "CUPS_PASSWORD",
 					"description": "Admin password"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -126,6 +147,27 @@
 				{
 					"label": "CLI_ARGS",
 					"name": "CLI_ARGS"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -145,7 +187,28 @@
                     "default": "1000",
                     "label": "PGID",
                     "name": "PGID"
-                }
+                },
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
+				}
             ],
 			"image": "linuxserver/librespeed:latest",
 			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/speedtest.png",
@@ -159,7 +222,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/docker/container/librespeed",
+					"bind": "/docker/container/librespeed/data",
 					"container": "/config"
 				}
 			],
@@ -204,6 +267,27 @@
 				{
 					"label": "MYSQL_ROOT_PASSWORD",
 					"name": "MYSQL_ROOT_PASSWORD"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -309,6 +393,27 @@
 							"value": "false"
 						}
 					]
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -358,6 +463,27 @@
 					"default": "1000",
 					"label": "PGID",
 					"name": "PGID"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -384,6 +510,27 @@
 					"name": "CONTNAME",
 					"label": "HOSTNAME",
 					"description": "Set here your hostname"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
@@ -407,7 +554,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/docker/container/vaultwarden",
+					"bind": "/docker/container/vaultwarden/data",
 					"container": "/data"
 				}
 			],
@@ -456,7 +603,7 @@
 			"type": 1,
 			"volumes": [
 				{
-					"bind": "/docker/container/whoogle",
+					"bind": "/docker/container/whoogle/data",
 					"container": "/config"
 				}
 			],
@@ -513,6 +660,27 @@
 					"default": "0.0.0.0/0, ::/0",
 					"name": "WG_ALLOWED_IPS",
 					"label": "WG_ALLOWED_IPS"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
 			]
 		},
