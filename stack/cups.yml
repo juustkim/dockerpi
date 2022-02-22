@@ -34,7 +34,7 @@ services:
       - "traefik.http.routers.${CONTNAME}-secure.tls=true"
       - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
       - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=631"
-      - "traefik.docker.network=proxy"
+      - "traefik.docker.network=frontend"
     networks:
       - frontend
     dns: 172.20.0.250
