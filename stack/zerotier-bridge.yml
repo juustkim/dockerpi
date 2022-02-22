@@ -8,6 +8,7 @@ services:
   zerotier:
     image: zyclonite/zerotier:bridge
     container_name: ${CONTNAME}
+    restart: unless-stopped
     devices:
       - /dev/net/tun
     volumes:
