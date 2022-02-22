@@ -9,8 +9,8 @@ services:
     image: kimostberg/cups:latest
     container_name: ${CONTNAME}
 #    network_mode: host
-    ports:
-      - "631:631"
+#    ports:
+#      - "631:631"
     restart: unless-stopped
     volumes:
       - /var/run/dbus:/var/run/dbus
@@ -23,6 +23,18 @@ services:
     environment:
       - CUPSADMIN=${CUPS_ADMIN}
       - CUPSPASSWORD=${CUPS_PASSWORD}
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=631"
+      - "traefik.docker.network=proxy"
     networks:
       - frontend
     dns: 172.20.0.250
