@@ -26,6 +26,7 @@ services:
 #      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
 #      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
 #      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
+      PIHOLE_DNS_: 127.0.0.1#5335
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/container/${CONTNAME}/data:/etc/pihole:rw
