@@ -22,7 +22,7 @@ services:
     container_name: ${CONTNAME}
 #    hostname: ${CONTNAME}
     volumes:
-      - /docker/container/${CONTNAME}:/etc/wireguard
+      - /docker/container/${CONTNAME}/data:/etc/wireguard
     ports:
       - "${WG_PORT}:51820/udp"
 #      - "51821:51821/tcp"
@@ -37,3 +37,15 @@ services:
       - frontend
     dns: 
       - ${WG_DEFAULT_DNS}
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=51821"
+      - "traefik.docker.network=frontend"
