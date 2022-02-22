@@ -530,26 +530,45 @@
 				"Tools"
 			],
 			"description": "This is a Bitwarden server API implementation written in Rust compatible with upstream Bitwarden clients*, perfect for self-hosted deployment where running the official resource-heavy service might not be ideal..",
-			"image": "vaultwarden/server:latest",
 			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/bitwarden.png",
 			"name": "vaultwarden",
+			"title": "Vaultwarden",
 			"note": "Alternative Implementation of the Bitwarden Server API in Rust, including web vault.",
 			"platform": "linux",
-			"ports": [
-				"8011:80/tcp",
-				"3012:3012/tcp"
-			],
-			"restart_policy": "unless-stopped",
-			"title": "Vaultwarden",
-			"type": 1,
-			"volumes": [
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/vaultwarden.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"env": [
 				{
-					"bind": "/docker/container/vaultwarden/data",
-					"container": "/data"
+					"default": "vaultwarden",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
 				}
-			],
-			"network": "frontend",
-			"dns": "172.20.0.250"
+			]
 		},
 		{
 			"categories": [

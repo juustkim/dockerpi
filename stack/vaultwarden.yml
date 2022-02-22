@@ -1,0 +1,33 @@
+version: "3"
+
+networks:
+  frontend:
+    external: true # add this if the network is already existing!
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: ${CONTNAME}
+#    hostname: ${CONTNAME}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/data:/data/
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=80"
+      - "traefik.docker.network=frontend"
+#    ports:
+#      - 8011:80/tcp
+#      - 3012:3012/tcp
+    networks:
+      - frontend
+    dns: 
+      - 172.20.0.250
