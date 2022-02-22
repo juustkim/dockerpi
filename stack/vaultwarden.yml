@@ -11,7 +11,7 @@ services:
 #    hostname: ${CONTNAME}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /docker/container/${CONTNAME}/data:/data/
+      - /docker/container/${CONTNAME}/data:/data
     labels:
       - "traefik.enable=${TRAEFIK}"
       - "traefik.http.routers.${CONTNAME}.entrypoints=http"
