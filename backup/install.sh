@@ -1,7 +1,7 @@
 SCRIPTSDIR=/docker/backup/scripts
 
-if [ ! -d $BACKUPDIR ]; then
-    mkdir -p $BACKUPDIR
+if [ ! -d $SCRIPTSDIR ]; then
+    mkdir -p $SCRIPTSDIR
 fi
 
 if [ ! -f /docker/backup/scripts/db-backup.sh ]; then
