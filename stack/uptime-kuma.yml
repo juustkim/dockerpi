@@ -9,6 +9,7 @@ services:
     image: louislam/uptime-kuma
     container_name: ${CONTNAME}
 #    hostname: ${CONTNAME}
+    restart: unless-stopped
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/container/${CONTNAME}/data:/app/data
