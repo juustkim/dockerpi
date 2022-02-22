@@ -1,4 +1,4 @@
-version: "2.1"
+version: "3"
 
 networks:
   frontend: 
@@ -11,10 +11,10 @@ services:
     environment:
       - PUID=${PUID}
       - PGID=${PGID}
-      - TZ=${TZ}
       - CLI_ARGS= ${CLI_ARGS}
     volumes:
-      - /docker/container/${CONTNAME}:/config
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/data:/config
       - /docker:/source
       - /backups:/backups
 #    ports:
@@ -23,3 +23,15 @@ services:
     networks:
       - frontend
     dns: 172.20.0.250
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${CONTNAME}.${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=8200"
+      - "traefik.docker.network=frontend"
