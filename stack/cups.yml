@@ -13,13 +13,13 @@ services:
 #      - "631:631"
     restart: unless-stopped
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /var/run/dbus:/var/run/dbus
-      - /docker/container/${CONTNAME}/etc:/etc/cups
       - /docker/container/${CONTNAME}/config:/config
       - /docker/container/${CONTNAME}/services:/services
     devices:
       - /dev/bus:/dev/bus
-#      - /dev/usb:/dev/usb
+      - /dev/usb:/dev/usb
     environment:
       - CUPSADMIN=${CUPS_ADMIN}
       - CUPSPASSWORD=${CUPS_PASSWORD}
