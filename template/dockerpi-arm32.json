@@ -168,6 +168,62 @@
 		},
 		{
 			"categories": [
+				"Tools",
+				"Web",
+				"Other"
+			],
+			"description": "Heimdall is a way to organise all those links to your most used web sites and web applications in a simple way.",
+			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/heimdall-icon.png",
+			"name": "heimdall",
+			"title": "Heimdall",
+			"platform": "linux",
+			"repository": {
+				"stackfile": "stack/heimdall.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			},
+			"type": 3,
+			"env": [
+				{
+					"default": "heimdall",
+					"label": "HOSTNAME",
+					"name": "CONTNAME",
+					"description": "Insert the host name here"
+				},
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
+				},
+				{
+					"label": "Enable Traefik",
+					"name": "TRAEFIK",
+					"select": [
+						{
+							"text": "Enable Traefik",
+							"value": "true",
+							"default": true
+						},
+						{
+							"text": "Disable Traefik",
+							"value": "false"
+						}
+					]
+				},
+				{
+					"default": "home.arpa",
+					"name": "DOMAIN",
+					"label": "Domain for Traefik",
+					"description": "Set here your domain name here if you use Traefik"
+				}
+			]
+		},
+		{
+			"categories": [
 				"Other",
 				"Tools"
 			],
