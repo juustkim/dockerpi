@@ -17,6 +17,7 @@ services:
       - /var/run/dbus:/var/run/dbus
       - /docker/container/${CONTNAME}/config:/config
       - /docker/container/${CONTNAME}/services:/services
+      - /docker/container/${CONTNAME}/etc:/etc/cups
     devices:
       - /dev/bus:/dev/bus
       - /dev/usb:/dev/usb
