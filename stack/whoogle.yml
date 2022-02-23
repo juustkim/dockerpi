@@ -8,12 +8,12 @@ services:
   whoogle:
     image: benbusby/whoogle-search:latest
     container_name: ${CONTNAME}
-    environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
+#    environment:
+#      - PUID=${PUID}
+#      - PGID=${PGID}
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - /docker/container/${CONTNAME}/data:/config
+#      - /docker/container/${CONTNAME}/data:/config
 #    ports:
 #      - 5000:5000
     restart: unless-stopped    
