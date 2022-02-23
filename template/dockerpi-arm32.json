@@ -687,6 +687,16 @@
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
+				},
+				{
+					"default": "1000",
+					"label": "PUID",
+					"name": "PUID"
+				},
+				{
+					"default": "1000",
+					"label": "PGID",
+					"name": "PGID"
 				}
 			]
 		},
