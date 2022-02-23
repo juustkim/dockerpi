@@ -51,7 +51,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -159,7 +159,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -215,7 +215,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -255,7 +255,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -330,7 +330,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -456,7 +456,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -521,7 +521,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -568,7 +568,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -614,7 +614,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
@@ -737,7 +737,7 @@
 					]
 				},
 				{
-					"default": "home.arpa",
+					"default": "local.example.com",
 					"name": "DOMAIN",
 					"label": "Domain for Traefik",
 					"description": "Set here your domain name here if you use Traefik"
