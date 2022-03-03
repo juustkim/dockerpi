@@ -3,3 +3,4 @@
 
 # Ignore tmp file in build directory
 build/tmp/
+images/desktop.ini
