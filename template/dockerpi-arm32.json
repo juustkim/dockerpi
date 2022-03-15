@@ -36,6 +36,12 @@
 					"description": "Admin password"
 				},
 				{
+					"default": "631",
+					"label": "WEBPORT",
+					"name": "WEBPORT",
+					"description": "Web management port"
+				},
+				{
 					"label": "Enable Traefik",
 					"name": "TRAEFIK",
 					"select": [
