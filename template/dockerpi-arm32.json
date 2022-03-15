@@ -469,22 +469,6 @@
 					]
 				},
 				{
-					"label": "Open web management port",
-					"name": "PORTS",
-					"description": "If you disable Traefik, enable management port",
-					"select": [
-						{
-							"text": "Open",
-							"value": " "
-						},
-						{
-							"text": "Closed",
-							"value": "#",
-							"default": true
-						}
-					]
-				},
-				{
 					"label": "Enable Traefik",
 					"name": "TRAEFIK",
 					"select": [
