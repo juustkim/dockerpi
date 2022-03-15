@@ -475,7 +475,7 @@
 					"select": [
 						{
 							"text": "Open",
-							"value": ""
+							"value": " "
 						},
 						{
 							"text": "Closed",
