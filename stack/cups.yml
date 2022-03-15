@@ -22,6 +22,8 @@ services:
       - /dev/bus:/dev/bus
       - /dev/usb:/dev/usb
     environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
       - CUPSADMIN=${CUPS_ADMIN}
       - CUPSPASSWORD=${CUPS_PASSWORD}
     labels:
