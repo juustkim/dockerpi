@@ -416,9 +416,9 @@
 				},
 				{
 					"default": "8080",
-					"label": "PIHOLE_WEBPORT",
-					"name": "PIHOLE_WEBPORT",
-					"description": "Pihole Web management port"
+					"label": "WEBPORT",
+					"name": "WEBPORT",
+					"description": "Web management port"
 				},
 				{
 					"default": "piholepassword",
@@ -637,6 +637,12 @@
 					"name": "CONTNAME",
 					"label": "HOSTNAME",
 					"description": "Set here your hostname"
+				},
+				{
+					"default": "3001",
+					"label": "WEBPORT",
+					"name": "WEBPORT",
+					"description": "Web management port"
 				},
 				{
 					"label": "Enable Traefik",

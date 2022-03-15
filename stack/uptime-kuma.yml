@@ -25,8 +25,8 @@ services:
       - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
       - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=3001"
       - "traefik.docker.network=proxy"
-#    ports:
-#      - 3001:3001
+    ports:
+      - ${WEBPORT}:3001
     networks:
       - frontend
     dns: 
