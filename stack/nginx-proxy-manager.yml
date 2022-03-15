@@ -11,6 +11,8 @@ services:    # First time login Email:    admin@example.com
     container_name: ${CONTNAME}
     image: 'jc21/nginx-proxy-manager:latest'
     restart: unless-stopped
+    depends_on: 
+      - ${CONTNAME}-db
     ports:
       # These ports are in format <host-port>:<container-port>
       - '80:80' # Public HTTP Port
@@ -44,7 +46,6 @@ services:    # First time login Email:    admin@example.com
       MYSQL_DATABASE: ${CONTNAME}
       MYSQL_USER: ${CONTNAME}
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
-      TZ: ${TZ}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/db/${CONTNAME}:/var/lib/mysql
