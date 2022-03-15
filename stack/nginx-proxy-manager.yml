@@ -15,7 +15,7 @@ services:    # First time login Email:    admin@example.com
       # These ports are in format <host-port>:<container-port>
       - '80:80' # Public HTTP Port
       - '443:443' # Public HTTPS Port
-      - '8081:81' # Admin Web Port
+      - '${WEBPORT}:81' # Admin Web Port
       # Add any other Stream port you want to expose
       # - '21:21' # FTP
     environment:
@@ -25,8 +25,8 @@ services:    # First time login Email:    admin@example.com
       DB_MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this. Has to same as npm-db MYSQL_PASSWORD
       DB_MYSQL_NAME: ${CONTNAME}
       DISABLE_IPV6: 'true'  # Uncomment this if IPv6 is not enabled on your host
-      TZ: ${TZ}
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /docker/container/${CONTNAME}/data:/data
       - /docker/container/${CONTNAME}/letsencrypt:/etc/letsencrypt
     networks:
@@ -46,6 +46,7 @@ services:    # First time login Email:    admin@example.com
       MYSQL_PASSWORD: ${DATABASE_PASSWORD} # Change this
       TZ: ${TZ}
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /docker/db/${CONTNAME}:/var/lib/mysql
     networks:
       - backend

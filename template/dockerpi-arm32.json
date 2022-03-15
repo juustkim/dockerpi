@@ -360,11 +360,12 @@
 					"name": "CONTNAME",
 					"description": "Insert the host name here"
 				},
-                {
-					"default": "Europe/Istanbul",
-                    "label": "TZ",
-                    "name": "TZ"
-                },
+				{
+					"default": "8081",
+					"label": "WEBPORT",
+					"name": "WEBPORT",
+					"description": "Web management port"
+				},
 				{
 					"default": "dbpassword",
 					"label": "DATABASE_PASSWORD",
@@ -375,7 +376,6 @@
 					"label": "MYSQL_ROOT_PASSWORD",
 					"name": "MYSQL_ROOT_PASSWORD"
 				}
-				
 			]
 
 		},		
@@ -639,7 +639,7 @@
 					"description": "Set here your hostname"
 				},
 				{
-					"default": "3001",
+					"default": "8082",
 					"label": "WEBPORT",
 					"name": "WEBPORT",
 					"description": "Web management port"
