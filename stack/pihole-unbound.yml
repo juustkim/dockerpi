@@ -16,23 +16,26 @@ services:
     #  - 8443:443/tcp
       - 53:53/tcp
       - 53:53/udp
-    #  - 8080:80/tcp
+${PORTS}      - ${PIHOLE_WEBPORT:-8080}:80/tcp
     #  - 5335:5335/tcp # Uncomment to enable unbound access on local server
     #  - 22/tcp # Uncomment to enable SSH
     environment:
-      ServerIP: 10.13.37.250
+      FTLCONF_REPLY_ADDR4: ${FTLCONF_REPLY_ADDR4:-10.13.37.250}
       WEBPASSWORD: ${WEBPASSWORD}
 #      REV_SERVER: ${REV_SERVER}
 #      REV_SERVER_TARGET: ${REV_SERVER_TARGET}
 #      REV_SERVER_DOMAIN: ${REV_SERVER_DOMAIN}
 #      REV_SERVER_CIDR: ${REV_SERVER_CIDR}
       PIHOLE_DNS_: 127.0.0.1#5335
+      DNSSEC: ${DNSSEC}
+      DNSMASQ_LISTENING: single
+      WEBTHEME: ${WEBTHEME:-lcars}
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/container/${CONTNAME}/data:/etc/pihole:rw
       - /docker/container/${CONTNAME}/dnsmasq:/etc/dnsmasq.d:rw
     labels:
-      - "traefik.enable=true"
+      - "traefik.enable=${TRAEFIK}"
       - "traefik.http.routers.${CONTNAME}.entrypoints=http"
       - "traefik.http.routers.${CONTNAME}.rule=Host(`${CONTNAME}.${DOMAIN}`)"
       - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"

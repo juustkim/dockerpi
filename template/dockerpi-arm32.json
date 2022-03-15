@@ -399,7 +399,7 @@
 				{
 					"default": "10.13.37.250",
 					"label": "ServerIP",
-					"name": "ServerIP",
+					"name": "FTLCONF_REPLY_ADDR4",
 					"description": "Insert the Raspberry Pi IP here"
 				},
 				{
@@ -415,15 +415,43 @@
 					"description": "Pihole internal frontend-network IP"
 				},
 				{
+					"default": "8080",
+					"label": "PIHOLE_WEBPORT",
+					"name": "PIHOLE_WEBPORT",
+					"description": "Pihole Web management port"
+				},
+				{
 					"default": "piholepassword",
 					"label": "WEBPASSWORD",
 					"name": "WEBPASSWORD",
 					"description": "Write super secure password here"
 				},
 				{
-					"default": "Europe/Istanbul",
-					"label": "TZ",
-					"name": "TZ"
+					"label": "WEBTHEME",
+					"name": "WEBTHEME",
+					"select": [
+						{
+							"text": "Pi-hole default theme (light)",
+							"value": "default-light"
+						},
+						{
+							"text": "Pi-hole midnight theme (dark)",
+							"value": "default-dark"
+						},
+						{
+							"text": "Pi-hole deep-midnight theme (darker)",
+							"value": "default-darker"
+						},
+						{
+							"text": "Pi-hole auto theme (light/dark)",
+							"value": "default-auto"
+						},
+						{
+							"text": "Star Trek LCARS theme (dark)",
+							"value": "lcars",
+							"default": true
+						}
+					]
 				},
 				{
 					"label": "DNSSEC",
@@ -437,6 +465,22 @@
 						{
 							"text": "Disable DNSSEC",
 							"value": "false"
+						}
+					]
+				},
+				{
+					"label": "Open web management port",
+					"name": "PORTS",
+					"description": "If you disable Traefik, enable management port",
+					"select": [
+						{
+							"text": "Open",
+							"value": ""
+						},
+						{
+							"text": "Closed",
+							"value": "#",
+							"default": true
 						}
 					]
 				},
