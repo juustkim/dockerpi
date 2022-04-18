@@ -281,20 +281,13 @@
 			"logo": "https://raw.githubusercontent.com/kimostberg/dockerpi/master/images/speedtest.png",
 			"name": "librespeed",
 			"platform": "linux",
-			"ports": [
-				"83:80/tcp"
-			],
 			"restart_policy": "unless-stopped",
 			"title": "LibreSpeed",
-			"type": 1,
-			"volumes": [
-				{
-					"bind": "/docker/container/librespeed/data",
-					"container": "/config"
-				}
-			],
-			"network": "frontend",
-			"dns": "172.20.0.250"
+			"type": 3,
+			"repository": {
+				"stackfile": "stack/librespeed.yml",
+				"url": "https://github.com/kimostberg/dockerpi"
+			}
 		},
 		{
 			"categories": [
