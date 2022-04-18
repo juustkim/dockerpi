@@ -245,6 +245,12 @@
 			],
 			"description": "A Free and Open Source Speedtest for HTML5 and more.",
 			"env": [
+				{
+					"default": "librespeed",
+					"name": "CONTNAME",
+					"label": "HOSTNAME",
+					"description": "Set here your hostname"
+				},
                 {
                     "default": "1000",
                     "label": "PUID",
