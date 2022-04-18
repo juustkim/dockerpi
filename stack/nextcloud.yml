@@ -8,7 +8,7 @@ networks:
 
 services:
 
-  nextcloud-db:
+  ${CONTNAME}-db:
     container_name: ${CONTNAME}-db
     image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
@@ -24,7 +24,7 @@ services:
     networks:
       - backend
 
-  nextcloud-app:
+  ${CONTNAME}-app:
     image: nextcloud
     container_name: ${CONTNAME}-app
     hostname: ${CONTNAME}
