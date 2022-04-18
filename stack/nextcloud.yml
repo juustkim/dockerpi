@@ -9,7 +9,7 @@ networks:
 services:
 
   nextcloud-db:
-    container_name: nextcloud-db
+    container_name: ${CONTNAME}-db
     image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -25,12 +25,14 @@ services:
       - backend
 
   nextcloud-app:
-    image: nextcloud
-    container_name: nextcloud-app
+    image: ${CONTNAME}
+    container_name: ${CONTNAME}-app
     hostname: ${CONTNAME}
     restart: unless-stopped
     links:
-      - nextcloud-db
+      - ${CONTNAME}-db
+    depends_on:
+      - ${CONTNAME}-db    
 #   ports: 
 #     - 80:80
     volumes:
@@ -40,7 +42,7 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
       - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST=$nextcloud-db
+      - MYSQL_HOST=${CONTNAME}-db
     networks:
       - frontend
       - backend
@@ -55,5 +57,5 @@ services:
       - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${DOMAIN}`)"
       - "traefik.http.routers.${CONTNAME}-secure.tls=true"
       - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
-      - "traefik.http.services.nextcloud.loadbalancer.server.port=443"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=80"
       - "traefik.docker.network=frontend"
