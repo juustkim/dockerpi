@@ -531,6 +531,12 @@
 					"description": "Insert the host name here"
 				},
 				{
+					"default": "2048",
+					"label": "MAX_UPLOAD",
+					"name": "MAX_UPLOAD",
+					"description": "Max file upload size in MB"
+				},
+				{
 					"label": "DATABASE_PASSWORD",
 					"name": "DATABASE_PASSWORD"
 				},
