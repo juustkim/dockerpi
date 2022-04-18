@@ -7,7 +7,7 @@ networks:
     external: true # add this if the network is already existing!
     
 services:    
-  db:
+  projectsend-db:
     image: yobasystems/alpine-mariadb:latest
     container_name: ${CONTNAME}-db
     hostname: ${CONTNAME}-db
@@ -23,7 +23,7 @@ services:
     networks:
       - backend
 
-  app:
+  projectsend-app:
     image: linuxserver/projectsend
     container_name: ${CONTNAME}
     environment:
