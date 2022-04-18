@@ -8,8 +8,8 @@ networks:
 
 services:
 
-  ${CONTNAME}-db:
-    container_name: ${CONTNAME}-db
+  nextcloud-db:
+    container_name: nextcloud-db
     image: yobasystems/alpine-mariadb:latest
     restart: unless-stopped
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
@@ -24,13 +24,13 @@ services:
     networks:
       - backend
 
-  ${CONTNAME}-app:
+  nextcloud-app:
     image: nextcloud
-    container_name: ${CONTNAME}-app
+    container_name: nextcloud-app
     hostname: ${CONTNAME}
     restart: unless-stopped
     links:
-      - ${CONTNAME}-db
+      - nextcloud-db
 #   ports: 
 #     - 80:80
     volumes:
@@ -40,7 +40,7 @@ services:
       - MYSQL_PASSWORD=${DATABASE_PASSWORD}
       - MYSQL_DATABASE=${CONTNAME}
       - MYSQL_USER=${CONTNAME}
-      - MYSQL_HOST=${CONTNAME}-db
+      - MYSQL_HOST=$nextcloud-db
     networks:
       - frontend
       - backend
