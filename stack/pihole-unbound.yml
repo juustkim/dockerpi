@@ -11,7 +11,7 @@ services:
     container_name: ${CONTNAME}
     image: cbcrowe/pihole-unbound:latest
     hostname: ${CONTNAME}
-    domainname: ${DOMAIN}
+#    domainname: ${DOMAIN}
     ports:
 #      - 8443:443/tcp
       - 53:53/tcp
@@ -47,7 +47,7 @@ services:
       - "traefik.http.routers.${CONTNAME}-secure.tls=true"
       - "traefik.http.routers.${CONTNAME}-secure.service=pihole"
       - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=80"
-      - "traefik.docker.network=proxy"
+      - "traefik.docker.network=frontend"
     restart: unless-stopped
     networks:
       frontend:
