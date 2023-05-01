@@ -1,0 +1,22 @@
+version: '3.8'
+
+networks:
+  frontend: 
+    external: true # add this if the network is already existing!
+
+services:
+  twingate:
+    image: twingate/connector:1
+    container_name: ${CONTNAME}
+    restart: unless-stopped
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      - TENANT_URL=https://${TENANT}.twingate.com
+      - ACCESS_TOKEN=${ACCESS_TOKEN}
+      - REFRESH_TOKEN=${REFRESH_TOKEN}
+      - TWINGATE_LABEL_HOSTNAME=`hostname`
+    sysctls:
+      net.ipv4.ping_group_range: "0 2147483647"
+    networks:
+      - frontend
