@@ -13,6 +13,7 @@ services:
     volumes:
       - /etc/localtime:/etc/localtime:ro
       - /docker/container/${CONTNAME}/data:/app/data
+      - /var/run/docker.sock:/var/run/docker.sock
     labels:
       - "traefik.enable=${TRAEFIK}"
       - "traefik.http.routers.${CONTNAME}.entrypoints=http"
