@@ -1,0 +1,42 @@
+version: '3.1'
+
+networks:
+  frontend: 
+    external: true # add this if the network is already existing!
+  backend:
+    external: true # add this if the network is already existing!
+
+services:
+  odoo-web:
+    container_name: ${CONTNAME}-web
+    image: odoo:16.0
+    depends_on:
+      - odoo-db
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=odoo-db
+      - USER=${CONTNAME}
+      - PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/data:/var/lib/odoo
+      - /docker/container/${CONTNAME}/config:/etc/odoo
+      - /docker/container/${CONTNAME}/addons:/mnt/extra-addons
+    networks:
+      - frontend
+      - backend
+
+  odoo-db:
+    container_name: ${CONTNAME}-db
+    image: postgres:15
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=${DATABASE_PASSWORD}
+      - POSTGRES_USER=${CONTNAME}
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/db/${CONTNAME}:/var/lib/postgresql/data/pgdata
+    networks:
+      - backend
