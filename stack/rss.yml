@@ -1,0 +1,46 @@
+version: '3'
+
+networks:
+  frontend: 
+    external: true # add this if the network is already existing!
+  backend:
+    external: true # add this if the network is already existing!
+
+services:
+  fullfeedrss:
+    container_name: fullfeedrss
+    image: "heussd/fivefilters-full-text-rss:latest"
+    environment:
+      # Leave empty to disable admin section
+      - FTR_ADMIN_PASSWORD=${FTR_ADMIN_PASSWORD}
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/fullfeedrss/cache:/var/www/html/cache
+    ports:
+      - "49999:80"
+    networks:
+      - frontend
+
+    freshrss:
+    image: freshrss/freshrss:latest
+    # Optional build section if you want to build the image locally:
+#    build:
+#      # Pick #latest (stable release) or #edge (rolling release) or a specific release like #1.21.0
+#      context: https://github.com/FreshRSS/FreshRSS.git#latest
+#      dockerfile: Docker/Dockerfile-Alpine
+    container_name: freshrss
+    hostname: freshrss
+    restart: unless-stopped
+    logging:
+      options:
+        max-size: 10m
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/freshrss/data:/var/www/FreshRSS/data
+      - /docker/container/freshrss/extensions:/var/www/FreshRSS/extensions
+    environment:
+      CRON_MIN: '3,33'
+    ports:
+      - "50000:80"
+    networks:
+      - frontend
