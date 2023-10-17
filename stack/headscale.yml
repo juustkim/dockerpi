@@ -1,0 +1,59 @@
+version: '3.9'
+
+networks:
+  frontend: 
+    external: true # add this if the network is already existing!
+
+services:
+  headscale:
+    container_name: ${CONTNAME}
+    volumes:
+        - /etc/localtime:/etc/localtime:ro
+        - /docker/container/${CONTNAME}/config:/etc/headscale/
+        - /docker/container/${CONTNAME}/keys:/var/lib/headscale/
+    ports:
+#        - 8080:8080
+        - 9090:9090
+    networks:
+        - frontend
+    dns: 172.20.0.250
+    image: headscale/headscale:latest
+    command: headscale serve
+    restart: unless-stopped
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=8080"
+      - "traefik.docker.network=frontend"
+
+  headscale-ui:
+    image: ghcr.io/gurucomputing/headscale-ui:latest
+    pull_policy: always
+    container_name: ${CONTNAME}-ui
+    volumes:
+        - /etc/localtime:/etc/localtime:ro
+    restart: unless-stopped
+#    ports:
+#        - 9999:80
+    networks:
+         - frontend
+    dns: 172.20.0.250
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}-ui.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}-ui.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-ui-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}-ui.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-ui-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-ui-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-ui-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-ui-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}-ui.loadbalancer.server.port=80"
+      - "traefik.docker.network=frontend"
