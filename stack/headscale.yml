@@ -23,37 +23,52 @@ services:
     labels:
       - "traefik.enable=${TRAEFIK}"
       - "traefik.http.routers.${CONTNAME}.entrypoints=http"
-      - "traefik.http.routers.${CONTNAME}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}.rule=(Host(`${DOMAIN}`) && PathPrefix(`/`))"
       - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
       - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
-      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=(Host(`${DOMAIN}`) && PathPrefix(`/`))"
       - "traefik.http.routers.${CONTNAME}-secure.tls=true"
       - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
       - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=8080"
       - "traefik.docker.network=frontend"
 
-  headscale-ui:
-    image: ghcr.io/gurucomputing/headscale-ui:latest
-    pull_policy: always
-    container_name: ${CONTNAME}-ui
-    volumes:
-        - /etc/localtime:/etc/localtime:ro
-    restart: unless-stopped
+  headscale-webui:
+    image: ghcr.io/ifargle/headscale-webui:latest
+    container_name: headscale-webui
+    environment:
+      - COLOR=blue                              # Use the base colors (ie, no darken-3, etc) - 
+      - HS_SERVER=https://${DOMAIN}    # Reachable endpoint for your Headscale server
+      - DOMAIN_NAME=https://${DOMAIN}  # The base domain name for this container.
+      - SCRIPT_NAME=/admin                     # This is your applications base path (wsgi requires the name "SCRIPT_NAME").  Remove if you are hosing at the root /
+      - KEY="${KEY}"             # Generate with "openssl rand -base64 32" - used to encrypt your key on disk.
+      - AUTH_TYPE=Basic                        # AUTH_TYPE is either Basic or OIDC.  Empty for no authentication
+      - LOG_LEVEL=info                         # Log level.  "DEBUG", "ERROR", "WARNING", or "INFO".  Default "INFO"
+      # ENV for Basic Auth (Used only if AUTH_TYPE is "Basic").  Can be omitted if you aren't using Basic Auth
+      - BASIC_AUTH_USER=${BASIC_AUTH_USER}                   # Used for basic auth
+      - BASIC_AUTH_PASS=${BASIC_AUTH_PASS}                  # Used for basic auth
+      # ENV for OIDC (Used only if AUTH_TYPE is "OIDC").  Can be omitted if you aren't using OIDC
+      #- OIDC_AUTH_URL=https://yourauthserver.com/application/o/headscale/.well-known/openid-configuration # URL for your OIDC issuer's well-known endpoint
+      #- OIDC_CLIENT_ID=your-auth-server-client-id-info-here         # Your OIDC Issuer's Client ID for Headscale-WebUI
+      #- OIDC_CLIENT_SECRET=your-oidc-auth-server-client-secret-key-will-go-here-and-be-very-long-indeed      # Your OIDC Issuer's Secret Key for Headscale-WebUI
 #    ports:
-#        - 9999:80
+#      - 5000:5000
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/volume:/data                         # Headscale-WebUI's storage.  Make sure ./volume is readable by UID 1000 (chown 1000:1000 ./volume)
+      - /docker/container/${CONTNAME}/config/:/etc/headscale/:ro           # Headscale's config storage location.  Used to read your Headscale config
     networks:
          - frontend
     dns: 172.20.0.250
     labels:
       - "traefik.enable=${TRAEFIK}"
       - "traefik.http.routers.${CONTNAME}-ui.entrypoints=http"
-      - "traefik.http.routers.${CONTNAME}-ui.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.routers.${CONTNAME}-ui.rule=(Host(`${DOMAIN}`) && PathPrefix(`/admin`))"
       - "traefik.http.middlewares.${CONTNAME}-ui-https-redirect.redirectscheme.scheme=https"
       - "traefik.http.routers.${CONTNAME}-ui.middlewares=${CONTNAME}-ui-https-redirect"
       - "traefik.http.routers.${CONTNAME}-ui-secure.entrypoints=https"
-      - "traefik.http.routers.${CONTNAME}-ui-secure.rule=Host(`${DOMAIN2}`)"
+      - "traefik.http.routers.${CONTNAME}-ui-secure.rule=(Host(`${DOMAIN}`) && PathPrefix(`/admin`))"
       - "traefik.http.routers.${CONTNAME}-ui-secure.tls=true"
       - "traefik.http.routers.${CONTNAME}-ui-secure.service=${CONTNAME}-ui"
-      - "traefik.http.services.${CONTNAME}-ui.loadbalancer.server.port=80"
+      - "traefik.http.services.${CONTNAME}-ui.loadbalancer.server.port=5000"
       - "traefik.docker.network=frontend"
