@@ -17,7 +17,8 @@ services:
       retries: 5
       timeout: 5s
     volumes:
-      - /docker/authentik/database:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/db/${CONTNAME}/database:/var/lib/postgresql/data
     environment:
       POSTGRES_PASSWORD: ${PG_PASS:?database password required}
       POSTGRES_USER: ${PG_USER:-authentik}
@@ -38,7 +39,8 @@ services:
       retries: 5
       timeout: 3s
     volumes:
-      - /docker/redis:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/redis:/data
     networks:
       - backend
       
@@ -53,8 +55,9 @@ services:
       AUTHENTIK_POSTGRESQL__NAME: ${PG_DB:-authentik}
       AUTHENTIK_POSTGRESQL__PASSWORD: ${PG_PASS}
     volumes:
-      - ./media:/media
-      - ./custom-templates:/templates
+      - /etc/localtime:/etc/localtime:ro
+      - /docker/container/${CONTNAME}/media:/media
+      - /docker/container/${CONTNAME}/custom-templates:/templates
     env_file:
       - stack.env
     ports:
@@ -66,6 +69,18 @@ services:
     networks:
       - frontend
       - backend
+    labels:
+      - "traefik.enable=${TRAEFIK}"
+      - "traefik.http.routers.${CONTNAME}.entrypoints=http"
+      - "traefik.http.routers.${CONTNAME}.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.middlewares.${CONTNAME}-https-redirect.redirectscheme.scheme=https"
+      - "traefik.http.routers.${CONTNAME}.middlewares=${CONTNAME}-https-redirect"
+      - "traefik.http.routers.${CONTNAME}-secure.entrypoints=https"
+      - "traefik.http.routers.${CONTNAME}-secure.rule=Host(`${DOMAIN}`)"
+      - "traefik.http.routers.${CONTNAME}-secure.tls=true"
+      - "traefik.http.routers.${CONTNAME}-secure.service=${CONTNAME}"
+      - "traefik.http.services.${CONTNAME}.loadbalancer.server.port=9000"
+      - "traefik.docker.network=frontend"
       
   worker:
     image: ${AUTHENTIK_IMAGE:-ghcr.io/goauthentik/server}:${AUTHENTIK_TAG:-2023.8.3}
@@ -83,11 +98,13 @@ services:
     # Removing `user: root` also prevents the worker from fixing the permissions
     # on the mounted folders, so when removing this make sure the folders have the correct UID/GID
     # (1000:1000 by default)
+    user: root
     volumes:
+      - /etc/localtime:/etc/localtime:ro
       - /var/run/docker.sock:/var/run/docker.sock
-      - /docker/authentik/media:/media
-      - /docker/authentik/certs:/certs
-      - /docker/authentik/custom-templates:/templates
+      - /docker/container/${CONTNAME}/media:/media
+      - /docker/container/${CONTNAME}/certs:/certs
+      - /docker/container/${CONTNAME}/custom-templates:/templates
     env_file:
       - stack.env
     depends_on:
