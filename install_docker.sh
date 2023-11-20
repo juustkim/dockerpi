@@ -43,3 +43,14 @@ sudo chmod g+rwx "$HOME/.docker" -R
 
 sudo mkdir /docker
 sudo chown "$USER":"$USER" /docker -R
+
+docker network create \
+  --driver=bridge \
+  --subnet=172.20.0.0/16 \
+  --gateway=172.20.0.1 \
+  frontend
+
+docker network create \
+  --driver=bridge \
+  --subnet=172.21.0.0/16 \
+  backend
