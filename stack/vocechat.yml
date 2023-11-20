@@ -1,0 +1,17 @@
+version: "3.3"
+services:
+  vocechat-server:
+    restart: always
+    ports:
+      - 3000:3000
+    container_name: vocechat
+    image: privoce/vocechat-server:latest
+    networks:
+      - frontend
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - ./data:/home/vocechat-server/data
+    command: --network.frontend_url "https://vocechat.example.tk"
+networks:
+  frontend:
+    external: true
