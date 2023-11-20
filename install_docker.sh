@@ -38,8 +38,8 @@ sudo usermod -aG docker $USER || error "Failed to add user to the Docker usergro
 
 newgrp docker
 
-sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
-sudo chmod g+rwx "$HOME/.docker" -R
+#sudo chown "$USER":"$USER" /home/"$USER"/.docker -R
+#sudo chmod g+rwx "$HOME/.docker" -R
 
 sudo mkdir /docker
 sudo chown "$USER":"$USER" /docker -R
