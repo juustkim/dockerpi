@@ -10,7 +10,13 @@ services:
             - /etc/localtime:/etc/localtime:ro
             - /docker/homeassistant/config:/config
             - /run/dbus:/run/dbus:ro
-        network_mode: frontend
+        networks:
+            frontend:
+                ipv4_address: 172.20.0.249
         ports:
             - 8123:8123
         image: homeassistant/home-assistant:stable
+
+networks:
+  frontend:
+    external: true
