@@ -1,0 +1,16 @@
+version: "3"
+services:
+    home-assistant:
+        container_name: homeassistant
+        privileged: true
+        restart: unless-stopped
+#        environment:
+#            - TZ=MY_TIME_ZONE
+        volumes:
+            - /etc/localtime:/etc/localtime:ro
+            - /docker/homeassistant/config:/config
+            - /run/dbus:/run/dbus:ro
+        network_mode: frontend
+        ports:
+            - 8123:8123
+        image: homeassistant/home-assistant:stable
